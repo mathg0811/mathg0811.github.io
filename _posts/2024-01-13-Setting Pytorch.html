@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Setting Environment</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <hr>
+<h2 id="title-ml-study-note---setting-pytorchauthor-ds-jungdate-2024-01-13-130000-0900categories-ml-note-pytorchtags-studynote-----tag-names-should-always-be-lowercasecomment-truemath-truemermail-falsepin-true">title: ML Study note - Setting PyTorch
+author: DS Jung
+date: 2024-01-13 13:00:00 +0900
+categories: [ML, Note, Pytorch]
+tags: [studynote]    # TAG names should always be lowercase
+comment: true
+math: true
+mermail: false
+pin: true</h2>
+<p>This blog is randomly written without order or flow at the author's convenience or impulse</p>
+<hr>
+<h3 id="setting-environment">Setting Environment</h3>
+<p>Windows 10 ( build 19045 )<br>
+Intel i5-9400F<br>
+NVIDIA GTX 2070 super</p>
+<hr>
+<h3 id="installation-objectives-pytorch-environment">Installation Objectives PyTorch Environment</h3>
+<ol>
+<li>python 3.9</li>
+<li>miniconda 3</li>
+<li>cuda 11.8</li>
+<li>cudnn 8.9.7 ( latest )</li>
+<li>pytorch 2.1.2 ( latest )</li>
+</ol>
+<h4 id="reason-for-selecting-versions">Reason for selecting versions</h4>
+<ul>
+<li>cuda 11.8 and 12.1 is recommended for pytorch 2.1</li>
+<li>cuda 12.1 does not support static linkinㅎ</li>
+</ul>
+<hr>
+<h4 id="install-cuda-118">Install Cuda 11.8</h4>
+<p>link <a href="https://developer.nvidia.com/cuda-11-8-0-download-archive?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exe_local">Cuda 11.8 Download</a><br>
+Installation Path : C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8</p>
+<h4 id="install-cudnn-897-latest">install cudnn 8.9.7 (latest)</h4>
+<p>link <a href="https://developer.nvidia.com/rdp/cudnn-download">Cudnn lastest Download</a></p>
+<h4 id="install-miniconda">Install miniconda</h4>
+<p>link <a href="https://docs.conda.io/projects/miniconda/en/latest/index.html_">miniconda Download</a></p>
+<hr>
+<h4 id="reason-for-selecting-miniconda">Reason for selecting miniconda</h4>
+<ul>
+<li>If you use pip when creating a Python virtual environment, this environment may be path dependent and unavailable to implement when using IDE such as VScode does not support custom work path</li>
+<li>Anaconda is heavy because it installs too many packages together from the start</li>
+</ul>
+<hr>
+<h4 id="conda-create-virtual-environment">Conda create virtual environment</h4>
+
+            
+            
+        </body>
+        </html>
