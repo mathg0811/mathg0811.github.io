@@ -1,0 +1,1361 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-02-08T12:01:05+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your Name / Site Title</title><subtitle>personal description</subtitle><author><name>Your Sidebar Name</name><email>none@example.org</email></author><entry><title type="html">Future Blog Post</title><link href="http://localhost:4000/posts/2012/08/blog-post-4/" rel="alternate" type="text/html" title="Future Blog Post" /><published>2199-01-01T00:00:00+00:00</published><updated>2199-01-01T00:00:00+00:00</updated><id>http://localhost:4000/posts/2012/08/future-post</id><content type="html" xml:base="http://localhost:4000/posts/2012/08/blog-post-4/"><![CDATA[<p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>]]></content><author><name>Your Sidebar Name</name><email>none@example.org</email></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[This post will show up by default. To disable scheduling of future posts, edit config.yml and set future: false.]]></summary></entry><entry><title type="html">ML Study note - Setting PyTorch</title><link href="http://localhost:4000/ml/note/pytorch/Setting-Pytorch/" rel="alternate" type="text/html" title="ML Study note - Setting PyTorch" /><published>2024-01-13T04:00:00+00:00</published><updated>2024-01-13T04:00:00+00:00</updated><id>http://localhost:4000/ml/note/pytorch/Setting%20Pytorch</id><content type="html" xml:base="http://localhost:4000/ml/note/pytorch/Setting-Pytorch/"><![CDATA[<p>This blog is randomly written without order or flow at the author’s convenience or impulse</p>
+
+<hr />
+<h3 id="setting-environment">Setting Environment</h3>
+
+<p>Windows 10 ( build 19045 )<br />
+Intel i5-9400F<br />
+NVIDIA GTX 2070 super</p>
+
+<hr />
+<h3 id="installation-objectives-pytorch-environment">Installation Objectives PyTorch Environment</h3>
+<ol>
+  <li>python 3.9</li>
+  <li>miniconda 3</li>
+  <li>cuda 11.8</li>
+  <li>cudnn 8.9.7 ( latest )</li>
+  <li>pytorch 2.1.2 ( latest )</li>
+</ol>
+
+<h4 id="reason-for-selecting-versions">Reason for selecting versions</h4>
+<ul>
+  <li>cuda 11.8 and 12.1 is recommended for pytorch 2.1</li>
+  <li>cuda 12.1 does not support static linkinㅎ</li>
+</ul>
+
+<hr />
+
+<h4 id="install-cuda-118">Install Cuda 11.8</h4>
+<p>link <a href="https://developer.nvidia.com/cuda-11-8-0-download-archive?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exe_local">Cuda 11.8 Download</a><br />
+Installation Path : C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8</p>
+
+<h4 id="install-cudnn-897-latest">install cudnn 8.9.7 (latest)</h4>
+<p>link <a href="https://developer.nvidia.com/rdp/cudnn-download">Cudnn lastest Download</a></p>
+
+<h4 id="install-miniconda">Install miniconda</h4>
+<p>link <a href="https://docs.conda.io/projects/miniconda/en/latest/index.html_">miniconda Download</a></p>
+
+<hr />
+<h4 id="reason-for-selecting-miniconda">Reason for selecting miniconda</h4>
+<ul>
+  <li>If you use pip when creating a Python virtual environment, this environment may be path dependent and unavailable to implement when using IDE such as VScode does not support custom work path</li>
+  <li>Anaconda is heavy because it installs too many packages together from the start</li>
+</ul>
+
+<hr />
+<h4 id="conda-create-virtual-environment">Conda create virtual environment</h4>]]></content><author><name>DS Jung</name></author><category term="ML" /><category term="Note" /><category term="Pytorch" /><category term="studynote" /><summary type="html"><![CDATA[This blog is randomly written without order or flow at the author’s convenience or impulse]]></summary></entry><entry><title type="html">Setting pytorch</title><link href="http://localhost:4000/Setting-Pytorch/" rel="alternate" type="text/html" title="Setting pytorch" /><published>2024-01-13T00:00:00+00:00</published><updated>2024-01-13T00:00:00+00:00</updated><id>http://localhost:4000/Setting%20Pytorch</id><content type="html" xml:base="http://localhost:4000/Setting-Pytorch/"><![CDATA[<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Setting Environment</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <hr>
+<h2 id="title-ml-study-note---setting-pytorchauthor-ds-jungdate-2024-01-13-130000-0900categories-ml-note-pytorchtags-studynote-----tag-names-should-always-be-lowercasecomment-truemath-truemermail-falsepin-true">title: ML Study note - Setting PyTorch
+author: DS Jung
+date: 2024-01-13 13:00:00 +0900
+categories: [ML, Note, Pytorch]
+tags: [studynote]    # TAG names should always be lowercase
+comment: true
+math: true
+mermail: false
+pin: true</h2>
+<p>This blog is randomly written without order or flow at the author's convenience or impulse</p>
+<hr>
+<h3 id="setting-environment">Setting Environment</h3>
+<p>Windows 10 ( build 19045 )<br>
+Intel i5-9400F<br>
+NVIDIA GTX 2070 super</p>
+<hr>
+<h3 id="installation-objectives-pytorch-environment">Installation Objectives PyTorch Environment</h3>
+<ol>
+<li>python 3.9</li>
+<li>miniconda 3</li>
+<li>cuda 11.8</li>
+<li>cudnn 8.9.7 ( latest )</li>
+<li>pytorch 2.1.2 ( latest )</li>
+</ol>
+<h4 id="reason-for-selecting-versions">Reason for selecting versions</h4>
+<ul>
+<li>cuda 11.8 and 12.1 is recommended for pytorch 2.1</li>
+<li>cuda 12.1 does not support static linkinㅎ</li>
+</ul>
+<hr>
+<h4 id="install-cuda-118">Install Cuda 11.8</h4>
+<p>link <a href="https://developer.nvidia.com/cuda-11-8-0-download-archive?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exe_local">Cuda 11.8 Download</a><br>
+Installation Path : C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8</p>
+<h4 id="install-cudnn-897-latest">install cudnn 8.9.7 (latest)</h4>
+<p>link <a href="https://developer.nvidia.com/rdp/cudnn-download">Cudnn lastest Download</a></p>
+<h4 id="install-miniconda">Install miniconda</h4>
+<p>link <a href="https://docs.conda.io/projects/miniconda/en/latest/index.html_">miniconda Download</a></p>
+<hr>
+<h4 id="reason-for-selecting-miniconda">Reason for selecting miniconda</h4>
+<ul>
+<li>If you use pip when creating a Python virtual environment, this environment may be path dependent and unavailable to implement when using IDE such as VScode does not support custom work path</li>
+<li>Anaconda is heavy because it installs too many packages together from the start</li>
+</ul>
+<hr>
+<h4 id="conda-create-virtual-environment">Conda create virtual environment</h4>
+
+            
+            
+        </body>
+        </html>]]></content><author><name>Your Sidebar Name</name><email>none@example.org</email></author><summary type="html"><![CDATA[Setting Environment /* From extension vscode.github */ /*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/]]></summary></entry><entry><title type="html">ML Study note - Spark, Hadoop</title><link href="http://localhost:4000/ml/note/spark&hadoop/Spark,-Hadoop/" rel="alternate" type="text/html" title="ML Study note - Spark, Hadoop" /><published>2023-11-25T02:00:00+00:00</published><updated>2023-11-25T02:00:00+00:00</updated><id>http://localhost:4000/ml/note/spark&amp;hadoop/Spark,%20Hadoop</id><content type="html" xml:base="http://localhost:4000/ml/note/spark&amp;hadoop/Spark,-Hadoop/"><![CDATA[<h2 id="svd-singular-value-decomposition">SVD (Singular Value Decomposition)</h2>]]></content><author><name>DS Jung</name></author><category term="ML" /><category term="Note" /><category term="Spark&amp;Hadoop" /><category term="studynote" /><summary type="html"><![CDATA[SVD (Singular Value Decomposition)]]></summary></entry><entry><title type="html">ML Study note - SVD</title><link href="http://localhost:4000/ml/note/SVD/" rel="alternate" type="text/html" title="ML Study note - SVD" /><published>2022-06-20T11:00:00+00:00</published><updated>2022-06-20T11:00:00+00:00</updated><id>http://localhost:4000/ml/note/SVD</id><content type="html" xml:base="http://localhost:4000/ml/note/SVD/"><![CDATA[<p>일단 눈에 띄는대로 공부하기</p>
+
+<h2 id="svd-singular-value-decomposition">SVD (Singular Value Decomposition)</h2>]]></content><author><name>DS Jung</name></author><category term="ML" /><category term="Note" /><category term="reinforcementlearning" /><category term="lecturenote" /><summary type="html"><![CDATA[일단 눈에 띄는대로 공부하기]]></summary></entry><entry><title type="html">RL Model Test - Deep Fake</title><link href="http://localhost:4000/rl%20model%20test/artificial%20intelligence/Deep-Fake-Test/" rel="alternate" type="text/html" title="RL Model Test - Deep Fake" /><published>2022-03-23T11:00:00+00:00</published><updated>2022-03-23T11:00:00+00:00</updated><id>http://localhost:4000/rl%20model%20test/artificial%20intelligence/Deep%20Fake%20Test</id><content type="html" xml:base="http://localhost:4000/rl%20model%20test/artificial%20intelligence/Deep-Fake-Test/"><![CDATA[<p>Reference :</p>
+
+<p class="text-center"><a href="https://youtu.be/IHLwjiBmf-g"><img src="/assets/pic/RL_modeltest_Deepfake.JPG" alt="thumb1" width="400px" height="200px" /></a></p>
+
+<p>Just record for test of a Model from Nicks Video</p>
+
+<p>My test clip :</p>
+
+<p class="text-center"><a href="https://youtu.be/PiLspXC14AA"><img src="/assets/pic/RL_modeltest_Deepfake_cut.JPG" alt="thumb1" width="400px" height="200px" /></a></p>]]></content><author><name>DS Jung</name></author><category term="RL Model Test" /><category term="Artificial Intelligence" /><category term="reinforcementlearning" /><category term="deepfake" /><category term="rl test" /><summary type="html"><![CDATA[Reference :]]></summary></entry><entry><title type="html">ML Model Test - Movenet Multiperson</title><link href="http://localhost:4000/ml%20model%20test/artificial%20intelligence/Movenet-Test/" rel="alternate" type="text/html" title="ML Model Test - Movenet Multiperson" /><published>2022-02-22T07:00:00+00:00</published><updated>2022-02-22T07:00:00+00:00</updated><id>http://localhost:4000/ml%20model%20test/artificial%20intelligence/Movenet%20Test</id><content type="html" xml:base="http://localhost:4000/ml%20model%20test/artificial%20intelligence/Movenet-Test/"><![CDATA[<p>Reference :</p>
+
+<p class="text-center"><a href="https://youtu.be/KC7nJtBHBqg"><img src="/assets/pic/RL_modeltest_movenet_multiperson.JPG" alt="thumb1" width="400px" height="200px" /></a></p>
+
+<p>Just record for test of a Model directly loaded from Hub</p>
+
+<p>My test clip :</p>
+
+<p class="text-center"><a href="https://youtu.be/nzKZV73iDPY"><img src="/assets/pic/RL_modeltest_movenet_cut1.JPG" alt="thumb1" width="400px" height="200px" /></a></p>]]></content><author><name>DS Jung</name></author><category term="ML Model Test" /><category term="Artificial Intelligence" /><category term="reinforcementlearning" /><category term="movenet" /><category term="rl test" /><summary type="html"><![CDATA[Reference :]]></summary></entry><entry><title type="html">Review - Article Alphago Zero</title><link href="http://localhost:4000/review/artificial%20intelligence/Review-Alphago-Zero/" rel="alternate" type="text/html" title="Review - Article Alphago Zero" /><published>2022-02-07T07:00:00+00:00</published><updated>2022-02-07T07:00:00+00:00</updated><id>http://localhost:4000/review/artificial%20intelligence/Review-Alphago-Zero</id><content type="html" xml:base="http://localhost:4000/review/artificial%20intelligence/Review-Alphago-Zero/"><![CDATA[<p>Link :</p>
+
+<p class="text-center"><a href="https://www.nature.com/articles/nature24270?sf123103138=1"><img src="/assets/pic/Review_Alphago_zero.JPG" alt="thumb1" width="400px" height="200px" /></a></p>
+
+<p>일단 읽으면서 생각 흐름대로 끄적이기부터</p>
+
+<h2 id="alphago">Alphago</h2>
+
+<p>이세돌을 이긴 첫번째 alphgo는 두 개의 deep neural network를 사용</p>
+
+<ul>
+  <li>Policy network : Outputs move probabilities</li>
+  <li>Value network : predict the winner of games played by the policy network</li>
+</ul>
+
+<p>Train 후에는 Monte Carlo Tree Saerch (MCTS) 로 통합, 가능성이 높은 수들을 위주로 예측하고 이 예측된 수들의 승리가능성을 value network로 판단</p>
+
+<h2 id="alphago-zero">Alphago Zero</h2>
+
+<p>Alphago Zero는 각각 판후이와 이세돌을 이긴 Alphago Fan 과 Alphago Lee 와는 중요한 점에서 다름</p>
+
+<ul>
+  <li>Self-play reinforcement learning 으로만 학습하여 지도를 완전히 배제함</li>
+  <li>Domain 지식 등이 들어가는 feature 변수를 완전히 제외하였고 오로지 바둑판과 돌 위치로만 학습시킴</li>
+  <li>두개의 network를 사용하지 않고 하나의 nearal network만 사용함 MC rollout 없이 single neural network로만 수를 계산하는 더 간단한 tree search를 사용함 - Algorithm that incorporates lookahead search inside the training loop</li>
+</ul>
+
+<h3 id="reinforcement-learning">Reinforcement learning</h3>
+
+<p>Deep neural network $f_\theta$ with parameters $\theta$</p>
+
+<ul>
+  <li>Input : raw board representation $s$ of the position and its history</li>
+  <li>Output : probabilities and a value $(p ,v) = f_\theta(s)$</li>
+  <li>vector of move probabilities $p$ represents the probability of selecting each move $a$,$p_a = Pr(a\vert s)$</li>
+  <li>
+    <p>neural network consists of residual blocks of convolutional layers with batch normalization and rectifier nonlinearities</p>
+  </li>
+  <li>Train from self-play game</li>
+  <li>In each position $s$, an MCTS search is executed, guided by neural network $f_\theta$</li>
+  <li>MCTS search output probabilities $\pi$ of playing each move.</li>
+  <li>neural network parameters $\theta$ are updated to maximize the similarity of the policy vector $p_t$ to the search probabilities $\pi_t$ and to minimize the error between the predicted winner $v_t$ and the game winner $z$</li>
+</ul>]]></content><author><name>DS Jung</name></author><category term="Review" /><category term="Artificial Intelligence" /><category term="reinforcementlearning" /><category term="review" /><category term="alphago" /><summary type="html"><![CDATA[Link :]]></summary></entry><entry><title type="html">RLcourse note - Lecture 9 Exploration and Exploitation</title><link href="http://localhost:4000/rlcourse/note/RL-course-Note-9/" rel="alternate" type="text/html" title="RLcourse note - Lecture 9 Exploration and Exploitation" /><published>2022-01-14T10:00:00+00:00</published><updated>2022-01-14T10:00:00+00:00</updated><id>http://localhost:4000/rlcourse/note/RL-course-Note-9</id><content type="html" xml:base="http://localhost:4000/rlcourse/note/RL-course-Note-9/"><![CDATA[<p>Video Link :</p>
+
+<p class="text-center"><a href="https://youtu.be/sGuiWX07sKw"><img src="/assets/pic/RL_lec9_thumb.JPG" alt="thumb1" width="400px" height="200px" /></a></p>
+
+<h3 id="9강-소감">9강 소감</h3>
+<p>Exploration과 Exploitation을 밸런스를 맞추면서 학습하도록하는 몇가지 기법에 대한 내용인데 별로 중요하진 않은것같다..? 솔직히 몇가지 배웠어도 큰 성능차이가 나는 부분도 아니고 몇 가지 환경적 상황 변수를 파악하고 거기에 맞게 설계한다면 이런 문제는 훨씬 효율적이고 적합하게 해결될 수 있다. 몇개 내용설명이 미흡하여 따로 공부해볼까했지만 중요하지 않아보여서 패스</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Exploration vs. Exploitation Dilemma</p>
+
+<ul>
+  <li>Inline decision-making invloves a fundamental choice:
+    <ul>
+      <li>Exploitation : Make the best decision given current information</li>
+      <li>Exploration : Gather more information</li>
+    </ul>
+  </li>
+  <li>The best long-term strategy may involve short-term sacrifices</li>
+  <li>Gather enough information to make the best overall decisions</li>
+</ul>
+
+<h3 id="principles">Principles</h3>
+
+<ul>
+  <li>Naive Exploration
+    <ul>
+      <li>Add noise to greedy policy (e.g. $\epsilon$-greedy)</li>
+    </ul>
+  </li>
+  <li>Optimistic Initialisation
+    <ul>
+      <li>Assume the best until proven otherwise</li>
+    </ul>
+  </li>
+  <li>Optimism in the Face of Uncertainty
+    <ul>
+      <li>Prefer actions with uncertain values</li>
+    </ul>
+  </li>
+  <li>Probability Matching
+    <ul>
+      <li>Select actions according to probability they are best</li>
+    </ul>
+  </li>
+  <li>Infromation State Search
+    <ul>
+      <li>Lookahead search incorporating value of information</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="multi-armed-bandits">Multi-Armed Bandits</h2>
+
+<ul>
+  <li>A multi-armed bandit is tuple $\langle\mathcal{A,R}\rangle$</li>
+  <li>$\mathcal{A}$ is a known set of m actions (or “arms”)</li>
+  <li>$\mathsf{\mathcal{R}^a(r) = \mathbb{P}[r\vert a]}$ is an unknown probability distribution over rewards</li>
+  <li>At each step t the agent selects an action $a_t \in \mathcal{A}$</li>
+  <li>The environment generates a reward $r_t \sim \mathcal{R}^{a_t}$</li>
+  <li>The goal is to maximise cumulative reward $\sum^t_{\tau = 1} r_\tau$</li>
+</ul>
+
+<p>tuple에서 P를 빼놓고 내용에서는 정작 사용하고 있는 아이러니, state transition probability와 reward probability가 다를 수는 있지만 state에서 정의될 수 있는 부분이기도 하다. reward varation을 state에서 정의하지 못할 만한 경우가 있을까?</p>
+
+<h3 id="regret">Regret</h3>
+
+<ul>
+  <li>The action-value is the mean reward for action a,</li>
+</ul>
+
+\[\mathsf{ Q(a) = \mathbb{E} [r \vert a] }\]
+
+<ul>
+  <li>The optimal value $\mathsf{V}^*$ is</li>
+</ul>
+
+\[\mathsf{ V^* = Q(a^*) = \underset{a\in\mathcal{A}}{max}\; Q(a) }\]
+
+<ul>
+  <li>The regret is the opportunity loss for one step</li>
+</ul>
+
+\[\mathsf{ l_t = \mathbb{E} [V^* - Q(a_t)] }\]
+
+<ul>
+  <li>The total regret is the total opportunity loss</li>
+</ul>
+
+\[\mathsf{ L_t = \mathbb{E} \left[ \displaystyle\sum^t_{\tau = 1 } V^* - Q(a_\tau) \right] }\]
+
+<ul>
+  <li>Maximise cumulative reward $\equiv$ minimise total regret</li>
+</ul>
+
+<p>Optimal도 그냥 Q 쓰면되지 난데없이 왜 V야. mean action value는 따로 표시하면 되지 왜 똑같이 q를 쓰려고 하는가. 여기서 regret은 경우에 따라 minus인 경우도 생길 것이다. 근데 regret은 왜 Expected value인가. one step 이라면서 왜 expected야 짜증나게. Summation 해놓고 E 붙이는것도 마찬가지고</p>
+
+<h4 id="counting-regret">Counting Regret</h4>
+
+<ul>
+  <li>The count $\mathsf{N_t(a)}$ is expected number of elections for action a</li>
+  <li>The gap $\Delta _a$ is the difference in value between action a and optimal action $\mathsf{ a^<em>, \Delta_a = V^</em> - Q(a) }$</li>
+  <li>Regret is a function of gaps and the counts</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{L_t}&amp;= \mathsf{ \mathbb{E} \left[ \displaystyle\sum^t_{\tau=1} V^* - Q(a_\tau) \right] } \\
+&amp;= \mathsf{ \displaystyle\sum_{a\in\mathcal{A}} \mathbb{E} [N_t(a)] (V^* - Q(a)) } \\
+&amp;= \mathsf{ \displaystyle\sum_{a\in\mathcal{A}} \mathbb{E} [N_t(a)] \Delta_a }
+\end{aligned}\]
+
+<ul>
+  <li>A good algorithm ensures small counts for large gaps</li>
+  <li>Problem: gaps are not known!</li>
+</ul>
+
+<p>이미 Summation을 했는데 $\mathbb{E}$는 왜 붙어있는건가…</p>
+
+<h4 id="linear-or-sublinear-regret">Linear or Sublinear Regret</h4>
+
+<ul>
+  <li>If an algorithm forever explores it will have linear total regret</li>
+  <li>If an algorithm never explores it will have linear total regret</li>
+  <li>Is it possible to achieve sublinear total regret?</li>
+</ul>
+
+<h3 id="greedy-and-epsilon-greedy-algorithms">Greedy and $\epsilon$-greedy algorithms</h3>
+
+<h4 id="greedy-algorithm">Greedy Algorithm</h4>
+
+<ul>
+  <li>We consider algorithms that estimate $\mathsf{\hat{Q}_t(a)\approx Q(a)}$</li>
+  <li>Estimate the value of each action by Monte-Carlo evaluation</li>
+</ul>
+
+\[\mathsf{ \hat{Q}_t(a) = \frac{1}{N_t(a)} \displaystyle\sum^T_{t=1} r_t 1(a_t=a) }\]
+
+<ul>
+  <li>The greedy algorithm selects action with highest value</li>
+</ul>
+
+\[\mathsf{ a^*_t = \underset{a\in\mathcal{A}}{argmax}\; \hat{Q}_t(a) }\]
+
+<ul>
+  <li>Greedy can lock onto a suboptimal action forever</li>
+  <li>$\Rightarrow$ Greedy has linear total regret</li>
+</ul>
+
+<h4 id="epsilon-greedy-algorithm">$\epsilon$-greedy Algorithm</h4>
+
+<ul>
+  <li>The $\epsilon$-greedy algorithm continues to explore forever
+    <ul>
+      <li>With probability $1-\epsilon$ select $\mathsf{a=\underset{a\in\mathcal{A}}{argmax}\;\hat{Q}(a)}$</li>
+      <li>With probability $\epsilon$ select a random action</li>
+    </ul>
+  </li>
+  <li>Constant $\epsilon$ ensures minimum regret</li>
+</ul>
+
+\[\mathsf{ l_t \geq \frac{\epsilon}{\mathcal{A}} \displaystyle\sum_{a\in\mathcal{A}}\Delta_a }\]
+
+<ul>
+  <li>$\Rightarrow$ $\epsilon$-greedy has linear total regret</li>
+</ul>
+
+<h4 id="optimistic-initialisation">Optimistic Initialisation</h4>
+
+<ul>
+  <li>Simple and practical idea: initialise $\mathsf{Q(a)}$ to high value</li>
+  <li>Update action value by incremental Monte-Carlo evaluation</li>
+  <li>Starting with $\mathsf{N(a) &gt; 0}$</li>
+</ul>
+
+\[\mathsf{ \hat{Q}_t(a_t) = \hat{Q}_{t-1} + \frac{1}{N_t(a_t)}(r_t - \hat{Q}_{t-1}) }\]
+
+<ul>
+  <li>Encourages systematic exploration early on</li>
+  <li>But can still lock onto suboptimal action</li>
+  <li>$\Rightarrow$ greedy + optimistic initialisation has linear total regret</li>
+  <li>$\Rightarrow$ $\epsilon$-greedy + optimistic initialisation has linear total regret</li>
+</ul>
+
+<p>초기 Value를 높게 설정해두고 시작함으로써 Exploration이 저절로 일어나지만 여전히 suboptimal 수렴은 가능하다. 간단하지만 꽤 괜찮은 접근법</p>
+
+<h4 id="decating-epsilon_t-greedy-algorithm">Decating $\epsilon_t$-Greedy Algorithm</h4>
+
+<ul>
+  <li>Pick a decay schedule for $\epsilon_1, \epsilon_2, \dots$</li>
+  <li>Consider the following schedule</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ c } &amp;&gt; \mathsf{ 0 } \\
+\mathsf{ d } &amp;= \mathsf{ \underset{a\vert\Delta_a&gt;0}{min}\; \Delta_i } \\
+\mathsf{ \epsilon_t } &amp;= \mathsf{ min \lbrace 1, \frac{c\vert \mathcal{A}\vert}{d^2t} \rbrace }
+\end{aligned}\]
+
+<ul>
+  <li>Decaying $\epsilon_t$-greedy has logarithmic asymptotic total regret!</li>
+  <li>Unfortunately, schedule requires advance knowledge of gaps</li>
+  <li>Goal: find an algorithm with sublinear regret for any multi-armed bandit (without knowledge of $\mathcal{R}$)</li>
+</ul>
+
+<p>gap notation 또 엉망이다 action 끼리의 regret 차이라고 한다. 그리고 regret은 실제로 알수 없는 값이므로 이론적인 내용일뿐 아직 의미는 없다. 그냥 exploration이 decay해서 regret이 logarithmic 해지고 기회비용이 줄었을 뿐</p>
+
+<h3 id="lower-bound">Lower Bound</h3>
+
+<ul>
+  <li>The performance of any algorithm is determined by similarity between optimal arm and other arms</li>
+  <li>Hard problems have similar-looking arms with different means</li>
+  <li>This is described formally by the gap $\Delta_a$ and the similarity in distributions $\mathsf{KL(\mathcal{R}^a\Vert\mathcal{R}^a *)}$</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Theorem (Lai and Robbins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Asymptotic total regret is at least logarithmic in number of steps<br /><center>$$ \mathsf{ \underset{t\rightarrow\infty}{\lim}\; L_t \leq \log\, t \displaystyle\sum_{a\vert\Delta_a&gt;0} \frac{\Delta_a}{KL(\mathcal{R}^a\Vert \mathcal{R}^{a^*})} } $$</center></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>흠 상황과 모델을 만들기에 따라 극복 가능할것 같은 느낌도 있지만 굳이. 근데 이걸 왜 하는지 나오려나?</p>
+
+<h3 id="upper-confidence-bound">Upper Confidence Bound</h3>
+
+<h4 id="optimism-in-the-face-of-uncertainty">Optimism in the Face of Uncertainty</h4>
+
+<p><img src="/assets/pic/Note9_figure1.JPG" alt="graph" width="700px" height="400px" class="text-center" /></p>
+
+<ul>
+  <li>Which action should we pick?</li>
+  <li>The more uncertain we are about an action-value</li>
+  <li>The more important it is to eplore that action</li>
+  <li>
+    <p>It could turn out to be the best action</p>
+  </li>
+  <li>After picking blue action</li>
+  <li>We are less uncertain about the value</li>
+  <li>And more likely to pick another action</li>
+  <li>Until we home in on best action</li>
+</ul>
+
+<p>흠 충분히 data를 수집한 뒤에도 1번 그래프가 유지된다면 그래도 1번을 고를 것인가</p>
+
+<h4 id="upper-confidence-bounds">Upper Confidence Bounds</h4>
+
+<ul>
+  <li>Estimate an upper confidence $\mathsf{\hat{U}_t(a)}$ for each action value</li>
+  <li>Such that $\mathsf{Q(a)\leq\hat{Q}_t(a)+\hat{U}_t(a)}$ with high probability</li>
+  <li>This depends on the number of times $\mathsf{N(a)}$ has been selected
+    <ul>
+      <li>Small $\mathsf{N_t(a) \Rightarrow}$ large $\mathsf{\hat{U}_t(a)}$ (estimated value is uncertain)</li>
+      <li>Large $\mathsf{N_t(a) \Rightarrow}$ small $\mathsf{\hat{U}_t(a)}$ (estimated value is accurate)</li>
+    </ul>
+  </li>
+  <li>Select action maximising Upper Confidence Bound (UCB)</li>
+</ul>
+
+\[\mathsf{ a_t = \underset{a\in\mathcal{A}}{argmax}\; \hat{Q}_t(a) + \hat{U}_t(a) }\]
+
+<p>평균적인 reward 기대값이 큰 action이 아니라불확실성이 있는 action을 선택할 가능성을 높이기 위한 방법으로써 U를 사용하는 것.</p>
+
+<h4 id="hoeffdings-inequality">Hoeffding’s Inequality</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Theorem (Hoeffding’s Inequality)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Let \(\mathsf{X_1,\dots ,X_t}\) be i.i.d. random variables in [0,1], and let <br />\(\mathsf{ \bar{X}_t = \frac{1}{t}} \sum^t_{\tau=1} X_\tau }\)  be the sample mean. Then<br /><center>$$\mathsf{ \mathbb{P}[\mathbb{E}[X]&gt;\bar{X}_t+u]\leq e^{-2tu^2} }$$</center></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>We will apply Hoeffding’s Inequality to rewards of the bandit</li>
+  <li>conditioned on selecting action a</li>
+</ul>
+
+\[\mathsf{ \mathbb{P} \left[ Q(a) &gt; \hat{Q}_t(a) + U_t(a) \right] \leq e^{-2N_t(a)U_t(a)^2} }\]
+
+<h4 id="calculating-upper-confidence-bounds">Calculating Upper Confidence Bounds</h4>
+
+<ul>
+  <li>Pick a probability p that true value exceeds UCB</li>
+  <li>Now solve for $\mathsf{U_t(a)}$</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ e^{-2N_t(a)U_t(a)^2} } &amp;= \mathsf{ p } \\
+\mathsf{ U_t(a) } &amp;= \mathsf{ \sqrt{\frac{-\log p}{2N_t(a)}} }
+\end{aligned}\]
+
+<ul>
+  <li>Reduce p as we observe more rewards, e.g. $\mathsf{p=t^{-4}}$</li>
+  <li>Ensures we select optimal action as $\mathsf{t\rightarrow \infty}$</li>
+</ul>
+
+\[\mathsf{ U_t(a) = \sqrt{\frac{-\log p}{2N_t(a)}} }\]
+
+<h4 id="ucb1">UCB1</h4>
+
+<ul>
+  <li>This leads to the UCB1 algorithm</li>
+</ul>
+
+\[\mathsf{ a_t = \underset{a\in\mathcal{A}}{argmax}\; Q(a) + \sqrt{\frac{2\log t}{N_t(a)}} }\]
+
+<table>
+  <thead>
+    <tr>
+      <th>Theorem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The UCB algorithm achieves logarithmic asymtotic total regret<br /><center>$$\mathsf{ \displaystyle\lim_{t\rightarrow\infty} L_t \leq 8\log t \displaystyle\sum_{a\vert\Delta_a&gt;0} \Delta_a }$$</center></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>UCB중 확률이 decay하는 \(t^{-4}\)를 사용하는 알고리즘</p>
+
+<h3 id="bayesisan-bandits">Bayesisan Bandits</h3>
+
+<ul>
+  <li>So far we have made no assumptions about the reward distribution $\mathcal{R}$
+    <ul>
+      <li>Except bounds on rewards</li>
+    </ul>
+  </li>
+  <li>Bayesian bandits exploit prior knowledge of rewards, $\mathsf{p}[\mathcal{R}]$</li>
+  <li>They compute posterior distribution of reward $\mathsf{p[\mathcal{R}\vert h_t]}$
+    <ul>
+      <li>where $\mathsf{h_t=a_1,r_1,\dots a_{t-1},r_{t-1}}$ is the history</li>
+    </ul>
+  </li>
+  <li>Use posterior to guide exploration
+    <ul>
+      <li>Upper confidence bounds (Bayesian UCB)</li>
+      <li>Probability matching (Thompson sampling)</li>
+    </ul>
+  </li>
+  <li>Better performance if prior knowledge is accurate</li>
+</ul>
+
+<h4 id="bayesian-ucb-example-independent-gaussians">Bayesian UCB Example: Independent Gaussians</h4>
+
+<ul>
+  <li>Assume reward distribution is Gaussian, $\mathsf{\mathcal{R}_a(r) = \mathcal{N}(r;\mu_a,\sigma^2_a)}$</li>
+  <li>Compute Gaussian posterior over $\mu_a$ and $\sigma_a^2$ (by Bayes law)</li>
+</ul>
+
+\[\mathsf{ p[\mu_a, \sigma^2_a \vert h_t] \propto p[\mu_a,\sigma^2_a] \displaystyle\prod_{t\vert a_t=a} \mathcal{N}(r_t; \mu_a,\sigma^2_a) }\]
+
+<ul>
+  <li>Pick action that maximises standard deviation of $\mathsf{Q(a)}$</li>
+</ul>
+
+\[\mathsf{ a_t = argmax \;\mu_a + c\sigma_a/\sqrt{N(a)} }\]
+
+<h4 id="probability-matching">Probability Matching</h4>
+
+<ul>
+  <li>Probability matching selects action a according to probability that a is the optimal action</li>
+</ul>
+
+\[\mathsf{ \pi(a\vert h_t) = \mathbb{P} [Q(a) &gt; Q(a'), \forall a' \neq a \vert h_t] }\]
+
+<ul>
+  <li>Probability matching is optimistic in the face of uncertainty
+    <ul>
+      <li>Uncertain actions have higher probability of being max</li>
+    </ul>
+  </li>
+  <li>Can be difficult to compute anlytically from posterior</li>
+</ul>
+
+<h4 id="thompson-sampling">Thompson Sampling</h4>
+
+<ul>
+  <li>Thompson sampling implements probability matching</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ \pi(a\vert h_t) } &amp;= \mathsf{ \mathbb{P} [ Q(a) &gt; Q(a'), \forall a' \neq a \vert h_t ] } \\
+&amp;= \mathsf{ \mathbb{E}_{\mathcal{R}\vert h_t} \left[ 1(a=\underset{a\in\mathcal{A}}{argmax}\; Q(a))\right] }
+\end{aligned}\]
+
+<ul>
+  <li>Use Bayes law to compute posterior distribution $\mathsf{p[\mathcal{R}\vert h_t]}$</li>
+  <li>Sample a reward distribution $\mathcal{R}$ from posterior</li>
+  <li>Compute action-value function $\mathsf{Q(a) = \mathbb{E}[\mathcal{R}_a]}$</li>
+  <li>Select action maximising value on ssample, $\mathsf{a_t = \underset{a\in\mathcal{A}}{argmax}\; Q(a)}$</li>
+  <li>Thompson sampling achieves Lai and Robbins lower bound!</li>
+</ul>
+
+<h4 id="value-of-information">Value of Information</h4>
+
+<ul>
+  <li>Exploration is useful because it gains information</li>
+  <li>Can we quantify the value of information?
+    <ul>
+      <li>How much reward a decision-maker would be prepared to pay in order to have that information, prior to making a decision</li>
+      <li>Long-term reward after getting information - immediate reward</li>
+    </ul>
+  </li>
+  <li>Information gain is higher in uncertain situations</li>
+  <li>Therefor it makes sense to explore uncertain situations more</li>
+  <li>If we know value of information, we can trade-off exploration and exploitation optimally</li>
+</ul>
+
+<p>exploration은 거의 random하게 시행되지만 좀더 smart, logically efficient한 방법이 있지않을까, 여기서는 uncertatinty만 쫓아서 모든 tree를 검증하는 방향으로만 하고 있다.</p>
+
+<h3 id="information-state-search">Information State Search</h3>
+
+<ul>
+  <li>We have viewed bandits as one-step decision-making problems</li>
+  <li>Can also view as sequential decision-making problems</li>
+  <li>At each step there is an information state $\mathsf{\tilde{s}}$
+    <ul>
+      <li>$\mathsf{\tilde{s}}$ is a statistic of the history, $\mathsf{\tilde{s_t} = f(h_t)}$</li>
+      <li>summarising all information accumulated so far</li>
+    </ul>
+  </li>
+  <li>Each action a causes a transition to a new information state $\mathsf{\tilde{s}’}$ (by adding information), with probability $\mathsf{\mathcal{\tilde{P}}^a_{\tilde{s},\tilde{s}’}}$</li>
+  <li>This defines MDP $\mathcal{\tilde{M}}$ in augmented information state space</li>
+</ul>
+
+\[\mathcal{ \tilde{M} = \langle \tilde{S}, A, \tilde{P}, R, \gamma\rangle }\]
+
+<h4 id="example-bernoulli-bandits">Example: Bernoulli Bandits</h4>
+
+<ul>
+  <li>Consider a Bernoulli bandit, such that $\mathsf{\mathcal{R}^a = \mathcal{B}(\mu_a)}$</li>
+  <li>e.g. Win or lose a game with probability $\mu_a$</li>
+  <li>Want to find which arm has the highest $\mu_a$</li>
+  <li>The information state is $\mathsf{\tilde{s}} = \langle\alpha,\beta\rangle$
+    <ul>
+      <li>$\alpha_a$ counts the pulls of arm a where reward was 0</li>
+      <li>$\beta_a$ counts the pulls of arm a where reward was 1</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="solving-information-state-space-bandits">Solving Information State Space Bandits</h4>
+
+<ul>
+  <li>We now have an infinite MDP over information states</li>
+  <li>This MDP can be solved by reinforcement learning</li>
+  <li>Model-free reinforcement learning
+    <ul>
+      <li>e.g. Q-learning (Duff, 1994)</li>
+    </ul>
+  </li>
+  <li>Bayesian model-based reinforcement learning
+    <ul>
+      <li>e.g. Gittins indices (Gittins, 1979)</li>
+      <li>This approach is known as Bayes-adaptive RL</li>
+      <li>Finds Bayes-optimal exploration/exploitation trade-off with respect to prior distribution</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="bayes-adaptive-bernoulli-bandits">Bayes-Adaptive Bernoulli Bandits</h4>
+
+<ul>
+  <li>Start with Beta$(\alpha_a, \beta_a)$ prior over reward function $\mathcal{R}^a$</li>
+  <li>Each time a is selected, update posterior for \(\mathcal{R}^a\)
+    <ul>
+      <li>Beta($\alpha_a + 1 ,\beta_a$) if $r= 0$</li>
+      <li>Beta(\(\alpha_a,\beta_a+1\)) if \(r=1\)</li>
+    </ul>
+  </li>
+  <li>This defines transition function \(\mathcal{\tilde{P}}\) for the Bayes-adaptive MDP</li>
+  <li>Information state \(\langle\alpha,\beta\rangle\) corresponds to reward model Beta(\(\alpha,\beta\))</li>
+  <li>Each state transition corresponds to a Bayesian model update</li>
+</ul>
+
+<h4 id="gittins-indices-for-bercoulli-bandits">Gittins Indices for Bercoulli Bandits</h4>
+
+<ul>
+  <li>Bayes-adaptive MDP can be solved by dynamic programming</li>
+  <li>The solution is known as the Gittins index</li>
+  <li>Exact solution to Bayes-adaptive MDP is typically intractable
+    <ul>
+      <li>Information state space is too large</li>
+    </ul>
+  </li>
+  <li>Recent idea: apply simulation-based search (Guez et al. 2012)
+    <ul>
+      <li>Forward search in information state space</li>
+      <li>Using simulations from current information state</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="contextual-bandits">Contextual Bandits</h2>
+
+<ul>
+  <li>A contextual bandit is a tuple \(\langle\mathcal{A,S,R}\rangle\)</li>
+  <li>\(\mathcal{A}\) is a known set of actions (or “arms”)</li>
+  <li>\(\mathcal{S= \mathbb{P}}\mathsf{[s]}\) is an unknown distribution over states (or “contexts”)</li>
+  <li>\(\mathsf{\mathcal{R}^a_s(r) = \mathbb{P}[r\vert s,a]}\) is an unknown probability distribution over rewards</li>
+  <li>At each step t
+    <ul>
+      <li>Environmnet generates state \(s_t\sim \mathcal{S}\)</li>
+      <li>Agent selects action \(\mathsf{a_t}\in\mathcal{A}\)</li>
+      <li>Environment generates reward \(\mathsf{r_t}\sim\mathcal{R}^{a_t}_{s_t}\)</li>
+    </ul>
+  </li>
+  <li>Goal is to maximise cumulative reward \(\mathsf{\sum^t_{\tau=1} r_\tau}\)</li>
+</ul>
+
+<h3 id="linear-ucb">Linear UCB</h3>
+
+<h4 id="linear-regression">Linear Regression</h4>
+
+<ul>
+  <li>Action-value function is expected reward for state s and action a</li>
+</ul>
+
+\[\mathsf{Q(s,a) = \mathbb{E}[r\vert s,a]}\]
+
+<ul>
+  <li>Estimate value function with a linear function approximator</li>
+</ul>
+
+\[\mathsf{ Q_\theta(s,a) = \phi (s,a)^\top \theta \approx Q(s,a) }\]
+
+<ul>
+  <li>Estimate parameters by least squares regression</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ A_t } &amp;= \mathsf{ \displaystyle\sum^t_{\tau=1} \phi(s_\tau , a_\tau) \phi(s_\tau, a_\tau)^\top } \\
+\mathsf{ b_t } &amp;= \mathsf{ \displaystyle\sum^t_{\tau=1} \phi(s_\tau,a_\tau)r_\tau } \\
+\mathsf{ \theta_t } &amp;= \mathsf{ A_t^{-1} b_t }
+\end{aligned}\]
+
+<h4 id="linear-upper-confidence-bounds">Linear Upper Confidence Bounds</h4>
+
+<ul>
+  <li>Least squares regression estimates the mean action-value \(\mathsf{Q_\theta(s,a)}\)</li>
+  <li>But it can also estimate the variance of the action-value \(\mathsf{\sigma^2_\theta(s,a)}\)</li>
+  <li>i.e. the uncertainty due to parameter estimation error</li>
+  <li>Add on a bonus for uncertainty, \(\mathsf{U_\theta(s,a) = c\sigma}\)</li>
+  <li>i.e. define UCB to be c standard deviations above the mean</li>
+</ul>
+
+<h4 id="geometric-interpretation">Geometric Interpretation</h4>
+
+<ul>
+  <li>Define confidence ellipsoid \(\mathcal{E}_t\) around parameters \(\theta_t\)</li>
+  <li>Such that \(\mathcal{E}_t\) includes true parameters \(\theta^*\) with high probability</li>
+  <li>Use this ellipsoid to estimate the uncertainty of action values</li>
+  <li>Pick parameters within ellipsoid that maximise action value</li>
+</ul>
+
+\[\mathsf{\underset{\theta\in\mathcal{E}}{argmax}\; Q_\theta(s,a)}\]
+
+<h4 id="calculating-linear-upper-confdence-bounds">Calculating Linear Upper Confdence Bounds</h4>
+
+<ul>
+  <li>For least quares regression, parameter covariance is \(\mathsf{A^{-1}}\)</li>
+  <li>Action-value is linear in features, \(\mathsf{Q_\theta(s,a) = \phi (s,a)^\top \theta}\)</li>
+  <li>So action-value variance is quadratic, \(\mathsf{\sigma^2_\theta(s,a) = \phi(s,a)^\top A^{-1} \phi(s,a)}\)</li>
+  <li>Upper confidence bound is \(\mathsf{Q_\theta(s_t,a) + c\sqrt{\phi(s,a)^\top A^{-1} \phi(s,a)}}\)</li>
+  <li>Select action maximising upper confidence bound</li>
+</ul>
+
+\[\mathsf{ a_t = \underset{a\in\mathcal{A}}{argmax}\; Q_\theta(s_t,a)+ c\sqrt{\phi(s_t,a)^\top A^{-1}_t \phi(s_t,a)}}\]
+
+<h2 id="mdps">MDPs</h2>
+
+<p>Exploration/Exploitation Principles to MDPS</p>
+
+<p>The same principles for exploration/exploitation apply to MDPs</p>
+
+<ul>
+  <li>Naive Exploration</li>
+  <li>Optimistic Initialisation</li>
+  <li>Optimism in the Face of Uncertainty</li>
+  <li>Probability Matching</li>
+  <li>Information State Search</li>
+</ul>
+
+<h3 id="optimistic-initialisations">Optimistic Initialisations</h3>
+
+<h4 id="optimistic-initialisation-model-free-rl">Optimistic Initialisation: Model-Free RL</h4>
+
+<ul>
+  <li>Initialise action-value function Q(s,a) to \(\frac{r_{max}}{1-\gamma}\)</li>
+  <li>Run favourite model-free RL algorithm
+    <ul>
+      <li>Monte-Carlo control</li>
+      <li>Sarsa</li>
+      <li>Q-learning</li>
+      <li>…</li>
+    </ul>
+  </li>
+  <li>Encourages systematic exploration of states and actions</li>
+</ul>
+
+<h4 id="optimistic-initialisation-model-based-rl">Optimistic Initialisation: Model-Based RL</h4>
+
+<ul>
+  <li>Construct an optimistic model of the MDP</li>
+  <li>Initialise transitions to go to heaven
+    <ul>
+      <li>(i.e. transition to terminal state with \(r_{max}\) reward)</li>
+    </ul>
+  </li>
+  <li>Solve optimistic MDP by favourite planning algorithm
+    <ul>
+      <li>policy iteration</li>
+      <li>value iteration</li>
+      <li>tree search</li>
+      <li>…</li>
+    </ul>
+  </li>
+  <li>Encourages systematic exploration of states and actions</li>
+  <li>e.g. RMax algorithm (Brafman and Tennenholtz)</li>
+</ul>
+
+<h3 id="optimism-in-the-face-of-uncertainty-1">Optimism in the Face of Uncertainty</h3>
+
+<h4 id="upper-confidence-bounds-model-free-rl">Upper Confidence Bounds: Model-Free RL</h4>
+
+<ul>
+  <li>Maximise UCB on action-value function \(\mathsf{Q^\pi (s,a)}\)
+<br /><center>$$\mathsf{ a_t = \underset{a\in\mathcal{A}}{argmax}\; Q(s_t,a) + U(s_t,a) }$$</center>
+    <ul>
+      <li>Estimate uncertainty in policy evaluation (easy)</li>
+      <li>Ignores uncertainty from policy improvement</li>
+    </ul>
+  </li>
+  <li>Maximise UCB on optimal action-value function \(\mathsf{Q^*(s,a)}\)
+<br /><center>$$\mathsf{ a_t = \underset{a\in\mathcal{A}}{argmax}\; Q(s_t,a) + U_1(s_t,a) + U_2(s_t,a) }$$</center>
+    <ul>
+      <li>Estimate uncertainty in policy evaluation (easy)</li>
+      <li>plus uncertainty from policy improvement (hard)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="bayesian-model-based-rl">Bayesian Model-Based RL</h4>
+
+<ul>
+  <li>Maintain posterior distribution over MDP models</li>
+  <li>Estimate both transitions and rewards, \(\mathsf{p[\mathcal{P,R}\vert h_t]}\)
+    <ul>
+      <li>where \(\mathsf{h_t = s_1,a_1,r_2,\dots ,s_t}\) is the history</li>
+    </ul>
+  </li>
+  <li>Use posterior to guide exploration
+    <ul>
+      <li>Upper confidence bounds (Bayesian UCB)</li>
+      <li>Probability matching (Thompson sampling)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="probability-matching-1">Probability Matching</h3>
+
+<h4 id="thompson-sampling-model-based-rl">Thompson Sampling: Model-Based RL</h4>
+
+<ul>
+  <li>Thompson sampling implements probability matching</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ \pi(s,a,\vert h_t)} &amp;= \mathsf{ \mathbb{P} [Q^*(s,a) &gt; Q^*(s,a'), \forall a' \neq a \vert h_t] } \\
+ &amp;= \mathsf{ \mathbb{E}_{\mathcal{P,R}\vert h_t} \left[ 1(a=\underset{a\in\mathcal{A}}{argmax}\; Q^*(s,a))\right] }
+\end{aligned}\]
+
+<ul>
+  <li>Use Bayes law to compute posterior distribution \(\mathsf{p[\mathcal{P,R}\vert h_t]}\)</li>
+  <li>Sample an MDP \(\mathcal{P,R}\) from posterior</li>
+  <li>Solve MDP using favourite planning algorithm to get \(\mathsf{Q^*(s,a)}\)</li>
+  <li>Select optimal action for sample MDP, \(\mathsf{a_t = \underset{a\in\mathcal{A}}{argmax}\; Q^*(s_t,a)}\)</li>
+</ul>
+
+<h3 id="information-state-search-1">Information State Search</h3>
+
+<h4 id="information-state-search-in-mdps">Information State Search in MDPs</h4>
+
+<ul>
+  <li>MDPs can be augmented to include infromation state</li>
+  <li>Now the augmented state is \(\langle s,\tilde{s}\rangle\)
+    <ul>
+      <li>where s is original state within MDP</li>
+      <li>and \(\tilde{s}\) is a statistic of the history (accumulated information)</li>
+    </ul>
+  </li>
+  <li>Each action a causes a transition
+    <ul>
+      <li>to a new state s’ with probability \(\mathcal{P}^a_{s,s'}\)</li>
+      <li>to a new information state \(\tilde{s}'\)</li>
+    </ul>
+  </li>
+  <li>Defines MDP \(\mathcal{\tilde{M}}\) in augmented information state space</li>
+</ul>
+
+\[\mathcal{\tilde{M} = \langle \tilde{S},A,\tilde{P},R,\gamma\rangle}\]
+
+<h4 id="bayes-adaptive-mdps">Bayes Adaptive MDPs</h4>
+
+<ul>
+  <li>Posterior distribution over MDP model is an information state</li>
+</ul>
+
+\[\mathsf{\tilde{s}_t = \mathbb{P}[\mathcal{P,R}\vert h_t]}\]
+
+<ul>
+  <li>Augmented MDP over \(\mathsf{\langle s, \tilde{s}\rangle}\) is called Bayes-adaptive MDP</li>
+  <li>Solve this MDP to find optimal exploration/exploitation trade-off (with respect to prior)</li>
+  <li>However, Bayes-adaptive MDP is typically enormous</li>
+  <li>Simulation-based search has proven effective (Guez et al.)</li>
+</ul>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<ul>
+  <li>Have covered several principles for exploration/exploitation
+    <ul>
+      <li>Naive methods such as $\epsilon$-greedy</li>
+      <li>Optimistic initialisation</li>
+      <li>Upper confidence bounds</li>
+      <li>Probability matching</li>
+      <li>Information state search</li>
+    </ul>
+  </li>
+  <li>Each principle was developed in bandit setting</li>
+  <li>But same principles also apply to MDP setting</li>
+</ul>]]></content><author><name>DS Jung</name></author><category term="RLcourse" /><category term="Note" /><category term="reinforcementlearning" /><category term="lecturenote" /><summary type="html"><![CDATA[Video Link :]]></summary></entry><entry><title type="html">RLcourse note - Lecture 8 Integrating Learning and Planning</title><link href="http://localhost:4000/rlcourse/note/RL-course-Note-8/" rel="alternate" type="text/html" title="RLcourse note - Lecture 8 Integrating Learning and Planning" /><published>2022-01-04T09:00:00+00:00</published><updated>2022-01-04T09:00:00+00:00</updated><id>http://localhost:4000/rlcourse/note/RL-course-Note-8</id><content type="html" xml:base="http://localhost:4000/rlcourse/note/RL-course-Note-8/"><![CDATA[<p>Video Link :</p>
+
+<p class="text-center"><a href="https://youtu.be/ItMutbeOHtc"><img src="/assets/pic/RL_lec8_thumb.JPG" alt="thumb1" width="400px" height="200px" /></a></p>
+
+<h3 id="8강-소감">8강 소감</h3>
+
+<p>Tree Search 의 장점은 알 수 없는 Model을 가정하여 거기에서 현재까지 학습된 policy에 따라 여러 시나리오들을 진행해보고 그를 바탕으로 Value를 빠르게 계산해볼 수 있다는 것이다. 강의에서는 Model로부터 Sample Experience를 확보하여 빠른 학습이 가능하다는 것을 중점으로 두고 설명하고 있으나, 사실 이 부분은 논리적으로 빠른 학습은 어려워 보인다. 특히 모델의 오차를 더 강화할 수도 있다는 부분에서 그렇다. 그러나 Tree Search 과정은 상당히 유의미한데, 이 방법을 통해 실제 Policy를 기반으로 유의미한 미래 예측과 그 Return 예측을 통해 Action을 선택할 수 있게 함으로써 무가치한 미래 예측에 할당될 자원을 절약할 수 있고 보다 빠르게 실시간으로 Model을 완벽히 모르는 상태에서도 최선의 선택을 할 수 있다는 점이다. 이 구조는 실제 인간 등이 선택을 하는 사고 과정과도 유사하지 않을까?</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Learn model directly from experience, and use planning to construct a value function or policy. Integrate learning and planning into a single architecture</p>
+
+<p>model을 경험으로부터 학습한다고 하는데, 이게 제일 중요한 부분인거 같은데 잘 다뤄져있지 않다. 이 실제 environment에 근접하는 model을 결정하는 부분이야말로 RL의 학습을 결정하는 가장 중요한 부분이 아닐까?</p>
+
+<h3 id="model-based-and-model-free-rl">Model-Based and Model-Free RL</h3>
+
+<ul>
+  <li>Model-Free RL
+    <ul>
+      <li>No model</li>
+      <li>Learn value function (and/or policy) from experience</li>
+    </ul>
+  </li>
+  <li>Model-Based RL
+    <ul>
+      <li>Learn a model from experience</li>
+      <li>Plan value function (and/or policy) from model</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="model-based-reinforcement-learning">Model-Based Reinforcement Learning</h2>
+
+<p>Advantages:</p>
+
+<ul>
+  <li>Can efficiently learn model by supervised learning methods</li>
+  <li>Can reason about model uncertainty</li>
+</ul>
+
+<p>Disadvantages:</p>
+
+<ul>
+  <li>First learn a model, then construct a value function
+<br />$\Rightarrow$ two sources of approximation error</li>
+</ul>
+
+<h3 id="model">Model</h3>
+
+<ul>
+  <li>A model $\mathcal{M}$ is a representation of an MDP $\langle\mathcal{S,A,P,R}\rangle$ parametrized by $\eta$</li>
+  <li>We will assume state space $\mathcal{S}$ and action space $\mathcal{A}$ are known</li>
+  <li>So a model $\mathcal{M=\langle P_\eta ,R_\eta \rangle}$ represents state transitions $\mathcal{P_\eta \approx P}$ and rewards $\mathcal{R_\eta \approx R}$</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ S_{t+1} } &amp; \sim \mathsf{ \mathcal{P}_\eta(S_{t+1}\;\vert\;S_t, A_t) } \\
+\mathsf{ R_{t+1} } &amp;= \mathsf{ \mathcal{R}_\eta(R_{t+1}\;\vert\;S_t, A_t) }
+\end{aligned}\]
+
+<ul>
+  <li>Typically assume conditional independence between state transitions and rewards</li>
+</ul>
+
+\[\mathsf{ \mathbb{P}[S_{t+1}, R_{t+1}\;\vert\;S_t, A_t] = \mathbb{P}[S_{t+1}\;\vert\;S_t, A_t]\mathbb{P}[R_{t+1}\;\vert\;S_t, A_t] }\]
+
+<p>경험으로부터 Model의 P, R을 기록하고 이를 통해 비슷한 결과를 내는 모델을 만든다. 즉 모델을 확률적인 state 변화와 Reward로 준다는 것이다. 이보다 중요한 구성 요소가 충분히 있을 것 같은데 전부 필드 개발자의 직관에 맡기겠다고 말하는 것 같다. State와 Action, Probability와 Reward를 잘 구성하기 어려울 것 같은데. 단순한 문제 또는 Model을 완벽하게 알고 있는 문제가 아니고서야.</p>
+
+<p>또한 Action의 결과로 어느 State로 전이되는지를 은근슬쩍 무시하기 시작했다. 어쩐지 지난 강의에서 Reward중 next state 부분을 없애버리더라. 이렇게 은근슬쩍 하나씩 맘대로 하는게 쌓이고 쌓인다. 물론 그 모든 조건을 만족하도록 Model을 만들어낼 수 있을지도 모른다. AI가 점점 어려워지겠지</p>
+
+<h4 id="model-learning">Model Learning</h4>
+
+<ul>
+  <li>Goal: estimate model $\mathcal{M}_\eta$ from experience $\lbrace \mathsf{ S_1, A_1, R_2, \dots, S_T } \rbrace $</li>
+  <li>This is a supervised learning problem</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ S_1, A_1 } &amp;\rightarrow \mathsf{ R_2,S_2 } \\
+\mathsf{ S_2, A_2 } &amp;\rightarrow \mathsf{ R_3,S_3 } \\
+&amp;\vdots\\
+\mathsf{ S_{T-1}, A_{T-1} } &amp;\rightarrow \mathsf{ R_T,S_T }
+\end{aligned}\]
+
+<ul>
+  <li>Learning $\mathsf{s,a,\rightarrow r}$ is a regression problem</li>
+  <li>Learning $\mathsf{s,a,\rightarrow s’}$ is a density estimation problem</li>
+  <li>Pick loss function, e.g. mean-squared error, KL divergence, $\dots$</li>
+  <li>Find parameters $\eta$ that minimise empirical loss</li>
+</ul>
+
+<p>Reward가 항상 Regression으로 결정될 수 있는 건 아닐 것 같은데, 전이 되는 state 에 따라 Reward가 바뀐다면 s,a 만 가지고는 결정할 수 없다.</p>
+
+<h4 id="examples-of-models">Examples of Models</h4>
+
+<ul>
+  <li>Table Lookup Model</li>
+  <li>Linear Expectation Model</li>
+  <li>Linear Gaussian Model</li>
+  <li>Gaussian Process Model</li>
+  <li>Deep Belief Network Model</li>
+  <li>…</li>
+</ul>
+
+<h4 id="table-lookup-model">Table Lookup Model</h4>
+
+<ul>
+  <li>Model is an explicit MDP, $\mathcal{\hat{P}, \hat{R}}$</li>
+  <li>Count visits $\mathsf{N(s,a)}$ to each state action pair</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ \mathcal{\hat{P}}^a_{s,s'} } &amp;= \mathsf{ \frac{1}{N(s,a)} \displaystyle\sum^T_{t=1} 1(S_t,A_t,S_{t+1} = s,a,s') } \\
+\mathsf{ \mathcal{\hat{R}}^a_s } &amp;= \mathsf{ \frac{1}{N(s,a)} \displaystyle\sum^T_{t=1} 1(S_t,A_t = s,a)R_t }
+\end{aligned}\]
+
+<ul>
+  <li>Alternatively
+    <ul>
+      <li>At each time-step t, record experience tuple
+<br />\(\mathsf{ \langle S_t, A_t, R_{t+1}, S_{t+1} \rangle }\)</li>
+      <li>To sample, model, randomly pick tuple matching $ \mathsf{ \langle s,a, \cdot, \cdot \rangle } $</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="planning-with-a-model">Planning with a Model</h3>
+
+<ul>
+  <li>Given a model $\mathcal{M_\eta = \langle P_\eta, R_\eta \rangle}$</li>
+  <li>Solve the MDP $\langle \mathcal{S,A,P_\eta, R_\eta} \rangle$</li>
+  <li>Using favourite planning algorithm
+    <ul>
+      <li>Value iteration</li>
+      <li>Policy iteration</li>
+      <li>Tree search</li>
+      <li>…</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="sample-based-planning">Sample-Based Planning</h4>
+
+<ul>
+  <li>A simple but powerful approach to planning</li>
+  <li>Use the model only to generate samples</li>
+  <li>Sample experience from model</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ S_{t+1} } &amp; \sim \mathsf{ \mathcal{P}_\eta(S_{t+1}\;\vert\;S_t, A_t) } \\
+\mathsf{ R_{t+1} } &amp;= \mathsf{ \mathcal{R}_\eta(R_{t+1}\;\vert\;S_t, A_t) }
+\end{aligned}\]
+
+<ul>
+  <li>Apply model-free RL to samples, e.g.:
+    <ul>
+      <li>Monte-Carlo control</li>
+      <li>Sarsa</li>
+      <li>Q-learning</li>
+    </ul>
+  </li>
+  <li>Sample-based planning methods are often more efficient</li>
+</ul>
+
+<h4 id="planning-with-an-inaccurate-model">Planning with an Inaccurate Model</h4>
+
+<ul>
+  <li>Given an imperfect model $\langle \mathcal{P_\eta, R_\eta} \rangle \neq \langle \mathcal{P, R} \rangle$</li>
+  <li>Performance of model-based RL is limited to optimal policy for approximate MDP $\langle \mathcal{S,A,P_\eta, R_\eta} \rangle$</li>
+  <li>i.e. Model-based RL is only as good as the estimated model</li>
+  <li>When the model is inaccurate, planning process will compute a suboptimal policy</li>
+  <li>Solution 1: when model is wrong, use model-free RL</li>
+  <li>Solution 2: reason explicitly about model uncertainty</li>
+</ul>
+
+<p>이런 사례가 많이 생길것 같은데 그 이유는 여태까지 쌓아온 가정이 너무 많으면서 굳이 필요없어보이는 부분까지도 가정하기 때문이라는 느낌</p>
+
+<h2 id="integrated-architectures">Integrated Architectures</h2>
+
+<h3 id="dyna">Dyna</h3>
+
+<h4 id="real-and-simulated-experience">Real and Simulated Experience</h4>
+
+<p>We consider two sources of experience</p>
+
+<p>Real experience - Sample from envrionment (True MDP)</p>
+
+\[\begin{aligned}
+\mathsf{ S' } &amp; \sim \mathsf{ \mathcal{P}^a_{s,s'} } \\
+\mathsf{ R } &amp;= \mathsf{ \mathcal{R}^a_s }
+\end{aligned}\]
+
+<p>Simulated experience - Sampled from model (approximate MDP)</p>
+
+\[\begin{aligned}
+\mathsf{ S' } &amp; \sim \mathsf{ \mathcal{P}_\eta(S'\;\vert\;S, A) } \\
+\mathsf{ R } &amp;= \mathsf{ \mathcal{R}_\eta(R\;\vert\;S, A) }
+\end{aligned}\]
+
+<h4 id="integrating-learning-and-planning">Integrating Learning and Planning</h4>
+
+<ul>
+  <li>Model-Free RL
+    <ul>
+      <li>No model</li>
+      <li>Learn value funciton (and/or policy) from real experience</li>
+    </ul>
+  </li>
+  <li>Model-Based RL (using Sample-Based Planning)
+    <ul>
+      <li>Learn a model from real experience</li>
+      <li>Plan value function (and/or policy) from simulated experience</li>
+    </ul>
+  </li>
+  <li>Dyna
+    <ul>
+      <li>Learn a model from real experience</li>
+      <li>Learn and plan value function (and/or policy) from real and simlated experience</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="dyna-q-algorithm">Dyna-Q Algorithm</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Initialize Q(s,a) and Model(s,a) for all $s \in \mathcal{S}$ and $a \in \mathcal{A}(s)$<br />Do forever:<br />$\quad$ (a) $S\leftarrow$ current (nonterminal) state<br />$\quad$ (b) $A\leftarrow\epsilon$-greedy (S,A) <br />$\quad$ (c) Execute action A; observe resultant reward, R, and state, S’<br />$\quad$ (d) $Q(S,A) \leftarrow Q(S,A) + \alpha [R + \gamma\; max_a Q(S’,a)-Q(S,A)]$<br />$\quad$ (e) $Model(S,A)\leftarrow R,S’$ (assuming deterministic environment)<br />$\quad$ (f) Repeat n times: <br /> $\quad\quad$ $S\leftarrow$ random previously observed state<br /> $\quad\quad$ $A\leftarrow$ random action previously taken in S <br /> $\quad\quad$ $R,S’\leftarrow Model(S,A)$ <br /> $\quad\quad$ $Q(S,A)\leftarrow Q(S,A) + \alpha [R + \gamma max_a Q(S’,a)-Q(S,A)]$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Model에서 추가적인 exeprience를 얻어 Value를 학습시키는 것은 적은 episode로도 빠르게 Value를 학습시킬 수 있을 지 모르나, Model의 정확성은 Real Experience가 충분히 많은 수로 확보되고 Model이 실제 Environment에 가까울 때에만 믿을 수 있다. 때로 초반에 잘못된 Model을 구성하도록 유도할 수도 있으며 장기적으로도 크게 유의미할것 같지는 않다.</p>
+
+<h2 id="simulation-based-search">Simulation-Based Search</h2>
+
+<h3 id="forward-search">Forward Search</h3>
+
+<ul>
+  <li>Forward search algorithms select the best action by lookahead</li>
+  <li>They build a search tree with the current state $s_t$ at the root</li>
+  <li>Using a model of the MDP to look ahead</li>
+  <li>No need to solve whole MDP, just sub-MDP starting from now</li>
+</ul>
+
+<p>Simulation-Based Search</p>
+
+<ul>
+  <li>Forward search paradigm using sample-based planning</li>
+  <li>Simulate episodes of experience from now with the model</li>
+  <li>Apply model-free RL to simulated episodes</li>
+  <li>Simulate episodes of experience from now with the model</li>
+</ul>
+
+\[\mathsf{ \lbrace s^k_t, A^k_t, R^k_{t+1}, \dots, S^k_T \rbrace ^K_{k=1} \sim \mathcal{M}_v }\]
+
+<ul>
+  <li>Apply model-free RL to simulated episodes
+    <ul>
+      <li>Monte-Carlo control $\rightarrow$ Monte-Carlo search</li>
+      <li>Sarsa $\rightarrow$ TD search</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="monte-carlo-search">Monte-Carlo Search</h3>
+
+<h4 id="simple-monter-carlo-search">Simple Monter-Carlo Search</h4>
+
+<ul>
+  <li>Given a model $\mathcal{M}_v$ and a simulation policy $\pi$</li>
+  <li>For each action $\mathsf{a}\in\mathcal{A}$
+    <ul>
+      <li>Simulate K episodes from current (real) state $\mathsf{s_t}$
+<br /><center>$$ \mathsf{ \lbrace s_t, a, R^k_{t+1}, S^k_{t+1}, A^k_{t+1} \dots, S^k_T \rbrace ^K_{k=1} \sim \mathcal{M}_v,\pi } $$</center></li>
+      <li>Evaluate actions by mean return (Monte-Carlo evaluation)
+<br /><center>$$ \mathsf{ Q(s_t,a) = \frac{1}{K} \displaystyle\sum^K_{k=1} G_t \overset{P}{\rightarrow} q_\pi(s_t,a) } $$</center></li>
+    </ul>
+  </li>
+  <li>Select current (real) action with maximum value
+<br /><center>$$ \mathsf{ a_t = \underset{a\in\mathcal{A}}{argmax}\; Q(s_t,a) } $$</center></li>
+</ul>
+
+<h4 id="monte-carlo-tree-search-evaluation">Monte-Carlo Tree Search (Evaluation)</h4>
+
+<ul>
+  <li>Given a model $\mathcal{M}_v$</li>
+  <li>Simulate K episodes from current state $\mathsf{s_t}$ using current simulation policy $\pi$
+<br /><center>$$ \mathsf{ \lbrace s_t, A^k_{t+1}, R^k_{t+1}, S^k_{t+1}, \dots, S^k_T \rbrace ^K_{k=1} \sim \mathcal{M}_v,\pi } $$</center></li>
+  <li>Build a search tree containing visited states and actions</li>
+  <li>Evaluate states Q(s,a) by mean return of episodes from s, a
+<br /><center>$$ \mathsf{ Q(s,a) = \frac{1}{N(s,a)} \displaystyle\sum^K_{k=1}\sum^T_{u=t} 1(S_u, A_u = s,a)G_u \overset{P}{\rightarrow} q_\pi(s_t,a) } $$</center></li>
+  <li>After search is finished, select current (real) action with maximum value in search tree
+<br /><center>$$ \mathsf{ a_t = \underset{a\in\mathcal{A}}{argmax}\; Q(s_t,a) } $$</center></li>
+</ul>
+
+<h4 id="monte-carlo-tree-search-simulation">Monte-Carlo Tree Search (Simulation)</h4>
+
+<ul>
+  <li>MCTS, the simulation policy $\pi$ improves</li>
+  <li>Each simulation consists of two phases (in-tree, out-of-tree)
+    <ul>
+      <li>Tree policy (improves): pick actions to maximise Q(S,A)</li>
+      <li>Default policy (fixed): pick actions randomly</li>
+    </ul>
+  </li>
+  <li>Repeat (each simulation)
+    <ul>
+      <li>Evaluate states Q(S,A) by Monte-Carlo evaluation</li>
+      <li>Improve tree policy, e.g. by $\epsilon$-greedy(Q)</li>
+    </ul>
+  </li>
+  <li>Monte-Carlo control applied to simulated experience</li>
+  <li>Converges on the optimal search tree, $\mathsf{ Q(S,A) \rightarrow q_*(S,A)}$</li>
+</ul>
+
+<h4 id="position-evaluation-in-go">Position Evaluation in Go</h4>
+
+<ul>
+  <li>How good is a position s?</li>
+  <li>Reward function (undiscounted):</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ R_t } &amp;= \mathsf{ 0 \text{ for all non-terminal steps } t&lt;T } \\
+\mathsf{ R_T } &amp;= \begin{cases}
+1 &amp; \text{ if Balck wins } \\
+0 &amp; \text{ if White wins }
+\end{cases}
+\end{aligned}\]
+
+<ul>
+  <li>Policy $\mathsf{\pi = \langle\pi_B , \pi_W\rangle}$ selects moves for both players</li>
+  <li>Value function (how good is position s):</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{v_\pi(s)} &amp;= \mathsf{ \mathbb{E}_\pi [R_T \vert S=s] = \mathbb{P} [\text{Black wins } \vert S=s] }  \\
+\mathsf{v_*(s)} &amp;= \mathsf{ \underset{\pi_B}{max}\; \underset{\pi_W}{min}\; v_\pi(s) }
+\end{aligned}\]
+
+<h4 id="advantages-of-mc-tree-search">Advantages of MC Tree Search</h4>
+
+<ul>
+  <li>Highly selective best-first search</li>
+  <li>Evaluates states dynamically (unlike e.g. DP)</li>
+  <li>Uses sampling to break curse of dimensionality</li>
+  <li>Works for “black-box” models (only requires samples)</li>
+  <li>Computationally efficient, anytime, parallelisable</li>
+</ul>
+
+<h3 id="temporal-difference-search">Temporal-Difference Search</h3>
+
+<ul>
+  <li>Simulation-based search</li>
+  <li>Using TD instead of MC (bootstrapping)</li>
+  <li>MC tree search applies MC control to sub-MDP from now</li>
+  <li>TD search applies Sarsa to sub-MDP from now</li>
+</ul>
+
+<h4 id="mc-vs-td-search">MC vs. TD search</h4>
+
+<ul>
+  <li>For model-free reinforcement learning, bootstrapping is helpful
+    <ul>
+      <li>TD learning reduces variance but increases bias</li>
+      <li>TD learning is usually more efficient than MC</li>
+      <li>TD($\lambda$) can be much more efficient than MC</li>
+    </ul>
+  </li>
+  <li>For simulation-based search, bootstrapping is also helpful
+    <ul>
+      <li>TD search reduces variance but increase bias</li>
+      <li>TD search is usually more efficient than MC search</li>
+      <li>TD($\lambda$) search can be much more efficient than MC search</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="td-search">TD Search</h4>
+
+<ul>
+  <li>Simulate episodes from the current (real) state $\mathsf{s_t}$</li>
+  <li>Estimate action-value function $\mathsf{Q(s,a)}$</li>
+  <li>For each step of simulation, update action-values by Sarsa</li>
+</ul>
+
+\[\mathsf{ \Delta Q(S,A) = \alpha (R+ \gamma Q(S',A') - Q(S,A)) }\]
+
+<ul>
+  <li>Select actions based on action-values $\mathsf{Q(s,a)}
+    <ul>
+      <li>e.g. $\epsilon$-greedy</li>
+    </ul>
+  </li>
+  <li>May also use function approximation for Q</li>
+</ul>
+
+<h4 id="dyna-2">Dyna-2</h4>
+
+<ul>
+  <li>In Dyna-2, the agent stores two sets of feature weights
+    <ul>
+      <li>Long-term memory</li>
+      <li>Short-term (working) memory</li>
+    </ul>
+  </li>
+  <li>Long-term memory is updated from real experience using TD learning
+    <ul>
+      <li>General domain knowledgd that applies to any episod</li>
+    </ul>
+  </li>
+  <li>Short-term memory is updated from simulated experience using TD search
+    <ul>
+      <li>Specific local knowledge about the currrent situation</li>
+    </ul>
+  </li>
+  <li>Over value function is sum of long and short-term memories</li>
+</ul>]]></content><author><name>DS Jung</name></author><category term="RLcourse" /><category term="Note" /><category term="reinforcementlearning" /><category term="lecturenote" /><summary type="html"><![CDATA[Video Link :]]></summary></entry></feed>

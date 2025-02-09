@@ -1,0 +1,1059 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>RLcourse note - Lecture 8 Integrating Learning and Planning - Your Name / Site Title</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Your Name / Site Title">
+<meta property="og:title" content="RLcourse note - Lecture 8 Integrating Learning and Planning">
+
+
+  <link rel="canonical" href="http://localhost:4000/rlcourse/note/RL-course-Note-8/">
+  <meta property="og:url" content="http://localhost:4000/rlcourse/note/RL-course-Note-8/">
+
+
+
+  <meta property="og:description" name="description" content="Video Link :">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2022-01-04T09:00:00+00:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Your Name",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Your Name / Site Title Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    
+
+<!-- start custom head snippets -->
+
+<!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/svg+xml" href="http://localhost:4000/images/favicon.svg"/>
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-192x192.png" sizes="192x192"/>
+<link rel="manifest" href="http://localhost:4000/images/manifest.json"/>
+<link rel="icon" href="/images/favicon.ico"/>
+<meta name="theme-color" content="#ffffff"/>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
+
+
+<!-- Support for MatJax -->
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Your Name / Site Title</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/talks/">Talks</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/teaching/">Teaching</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/portfolio/">Portfolio</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/year-archive/">Blog Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/cv/">CV</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/markdown/">Guide</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/profile.png" class="author__avatar" alt="Your Sidebar Name">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">Your Sidebar Name</h3>
+    
+    <p class="author__bio">Short biography for the left-hand sidebar</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      <!-- Font Awesome icons / Biographic information  -->
+      
+        <li class="author__desktop"><i class="fa-solid fa-location-dot icon-pad-right" aria-hidden="true"></i>Earth</li>
+      
+      
+        <li class="author__desktop"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i>Red Brick University</li>
+      
+      
+      
+        <li><a href="mailto:none@example.org"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>Email</a></li>
+      
+
+      <!-- Font Awesome and Academicons icons / Academic websites -->
+            
+      
+        <li><a href="https://scholar.google.com/citations?user=PS_CX0AAAAAJ"><i class="ai ai-google-scholar icon-pad-right"></i>Google Scholar</a></li>
+      
+      
+      
+      
+        <li><a href="http://orcid.org/yourorcidurl"><i class="ai ai-orcid ai-fw icon-pad-right"></i>ORCID</a></li>
+      
+      
+        <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"><i class="ai ai-pubmed ai-fw icon-pad-right"></i>PubMed</a></li>
+                              
+      
+      
+
+      <!-- Font Awesome icons / Repositories and software development -->
+      
+            
+            
+      
+        <li><a href="https://github.com/academicpages"><i class="fab fa-fw fa-github icon-pad-right" aria-hidden="true"></i>GitHub</a></li>
+      
+            
+            
+
+      <!-- Font Awesome icons / Social media -->
+      
+        <li><a href="https://bsky.app/profile/bsky.app"><i class="fab fa-fw fa-bluesky icon-pad-right" aria-hidden="true"></i>Bluesky</a></li>
+      
+      
+            
+      
+                  
+                  
+      
+            
+            
+            
+      
+            
+                  
+            
+      
+            
+            
+      
+              
+      
+                      
+      
+      
+            
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="RLcourse note - Lecture 8 Integrating Learning and Planning">
+    <meta itemprop="description" content="Video Link :">
+    <meta itemprop="datePublished" content="January 04, 2022">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">RLcourse note - Lecture 8 Integrating Learning and Planning
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2022-01-04T09:00:00+00:00">January 04, 2022</time></p>
+            
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>Video Link :</p>
+
+<p class="text-center"><a href="https://youtu.be/ItMutbeOHtc"><img src="/assets/pic/RL_lec8_thumb.JPG" alt="thumb1" width="400px" height="200px" /></a></p>
+
+<h3 id="8강-소감">8강 소감</h3>
+
+<p>Tree Search 의 장점은 알 수 없는 Model을 가정하여 거기에서 현재까지 학습된 policy에 따라 여러 시나리오들을 진행해보고 그를 바탕으로 Value를 빠르게 계산해볼 수 있다는 것이다. 강의에서는 Model로부터 Sample Experience를 확보하여 빠른 학습이 가능하다는 것을 중점으로 두고 설명하고 있으나, 사실 이 부분은 논리적으로 빠른 학습은 어려워 보인다. 특히 모델의 오차를 더 강화할 수도 있다는 부분에서 그렇다. 그러나 Tree Search 과정은 상당히 유의미한데, 이 방법을 통해 실제 Policy를 기반으로 유의미한 미래 예측과 그 Return 예측을 통해 Action을 선택할 수 있게 함으로써 무가치한 미래 예측에 할당될 자원을 절약할 수 있고 보다 빠르게 실시간으로 Model을 완벽히 모르는 상태에서도 최선의 선택을 할 수 있다는 점이다. 이 구조는 실제 인간 등이 선택을 하는 사고 과정과도 유사하지 않을까?</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Learn model directly from experience, and use planning to construct a value function or policy. Integrate learning and planning into a single architecture</p>
+
+<p>model을 경험으로부터 학습한다고 하는데, 이게 제일 중요한 부분인거 같은데 잘 다뤄져있지 않다. 이 실제 environment에 근접하는 model을 결정하는 부분이야말로 RL의 학습을 결정하는 가장 중요한 부분이 아닐까?</p>
+
+<h3 id="model-based-and-model-free-rl">Model-Based and Model-Free RL</h3>
+
+<ul>
+  <li>Model-Free RL
+    <ul>
+      <li>No model</li>
+      <li>Learn value function (and/or policy) from experience</li>
+    </ul>
+  </li>
+  <li>Model-Based RL
+    <ul>
+      <li>Learn a model from experience</li>
+      <li>Plan value function (and/or policy) from model</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="model-based-reinforcement-learning">Model-Based Reinforcement Learning</h2>
+
+<p>Advantages:</p>
+
+<ul>
+  <li>Can efficiently learn model by supervised learning methods</li>
+  <li>Can reason about model uncertainty</li>
+</ul>
+
+<p>Disadvantages:</p>
+
+<ul>
+  <li>First learn a model, then construct a value function
+<br />$\Rightarrow$ two sources of approximation error</li>
+</ul>
+
+<h3 id="model">Model</h3>
+
+<ul>
+  <li>A model $\mathcal{M}$ is a representation of an MDP $\langle\mathcal{S,A,P,R}\rangle$ parametrized by $\eta$</li>
+  <li>We will assume state space $\mathcal{S}$ and action space $\mathcal{A}$ are known</li>
+  <li>So a model $\mathcal{M=\langle P_\eta ,R_\eta \rangle}$ represents state transitions $\mathcal{P_\eta \approx P}$ and rewards $\mathcal{R_\eta \approx R}$</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ S_{t+1} } &amp; \sim \mathsf{ \mathcal{P}_\eta(S_{t+1}\;\vert\;S_t, A_t) } \\
+\mathsf{ R_{t+1} } &amp;= \mathsf{ \mathcal{R}_\eta(R_{t+1}\;\vert\;S_t, A_t) }
+\end{aligned}\]
+
+<ul>
+  <li>Typically assume conditional independence between state transitions and rewards</li>
+</ul>
+
+\[\mathsf{ \mathbb{P}[S_{t+1}, R_{t+1}\;\vert\;S_t, A_t] = \mathbb{P}[S_{t+1}\;\vert\;S_t, A_t]\mathbb{P}[R_{t+1}\;\vert\;S_t, A_t] }\]
+
+<p>경험으로부터 Model의 P, R을 기록하고 이를 통해 비슷한 결과를 내는 모델을 만든다. 즉 모델을 확률적인 state 변화와 Reward로 준다는 것이다. 이보다 중요한 구성 요소가 충분히 있을 것 같은데 전부 필드 개발자의 직관에 맡기겠다고 말하는 것 같다. State와 Action, Probability와 Reward를 잘 구성하기 어려울 것 같은데. 단순한 문제 또는 Model을 완벽하게 알고 있는 문제가 아니고서야.</p>
+
+<p>또한 Action의 결과로 어느 State로 전이되는지를 은근슬쩍 무시하기 시작했다. 어쩐지 지난 강의에서 Reward중 next state 부분을 없애버리더라. 이렇게 은근슬쩍 하나씩 맘대로 하는게 쌓이고 쌓인다. 물론 그 모든 조건을 만족하도록 Model을 만들어낼 수 있을지도 모른다. AI가 점점 어려워지겠지</p>
+
+<h4 id="model-learning">Model Learning</h4>
+
+<ul>
+  <li>Goal: estimate model $\mathcal{M}_\eta$ from experience $\lbrace \mathsf{ S_1, A_1, R_2, \dots, S_T } \rbrace $</li>
+  <li>This is a supervised learning problem</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ S_1, A_1 } &amp;\rightarrow \mathsf{ R_2,S_2 } \\
+\mathsf{ S_2, A_2 } &amp;\rightarrow \mathsf{ R_3,S_3 } \\
+&amp;\vdots\\
+\mathsf{ S_{T-1}, A_{T-1} } &amp;\rightarrow \mathsf{ R_T,S_T }
+\end{aligned}\]
+
+<ul>
+  <li>Learning $\mathsf{s,a,\rightarrow r}$ is a regression problem</li>
+  <li>Learning $\mathsf{s,a,\rightarrow s’}$ is a density estimation problem</li>
+  <li>Pick loss function, e.g. mean-squared error, KL divergence, $\dots$</li>
+  <li>Find parameters $\eta$ that minimise empirical loss</li>
+</ul>
+
+<p>Reward가 항상 Regression으로 결정될 수 있는 건 아닐 것 같은데, 전이 되는 state 에 따라 Reward가 바뀐다면 s,a 만 가지고는 결정할 수 없다.</p>
+
+<h4 id="examples-of-models">Examples of Models</h4>
+
+<ul>
+  <li>Table Lookup Model</li>
+  <li>Linear Expectation Model</li>
+  <li>Linear Gaussian Model</li>
+  <li>Gaussian Process Model</li>
+  <li>Deep Belief Network Model</li>
+  <li>…</li>
+</ul>
+
+<h4 id="table-lookup-model">Table Lookup Model</h4>
+
+<ul>
+  <li>Model is an explicit MDP, $\mathcal{\hat{P}, \hat{R}}$</li>
+  <li>Count visits $\mathsf{N(s,a)}$ to each state action pair</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ \mathcal{\hat{P}}^a_{s,s'} } &amp;= \mathsf{ \frac{1}{N(s,a)} \displaystyle\sum^T_{t=1} 1(S_t,A_t,S_{t+1} = s,a,s') } \\
+\mathsf{ \mathcal{\hat{R}}^a_s } &amp;= \mathsf{ \frac{1}{N(s,a)} \displaystyle\sum^T_{t=1} 1(S_t,A_t = s,a)R_t }
+\end{aligned}\]
+
+<ul>
+  <li>Alternatively
+    <ul>
+      <li>At each time-step t, record experience tuple
+<br />\(\mathsf{ \langle S_t, A_t, R_{t+1}, S_{t+1} \rangle }\)</li>
+      <li>To sample, model, randomly pick tuple matching $ \mathsf{ \langle s,a, \cdot, \cdot \rangle } $</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="planning-with-a-model">Planning with a Model</h3>
+
+<ul>
+  <li>Given a model $\mathcal{M_\eta = \langle P_\eta, R_\eta \rangle}$</li>
+  <li>Solve the MDP $\langle \mathcal{S,A,P_\eta, R_\eta} \rangle$</li>
+  <li>Using favourite planning algorithm
+    <ul>
+      <li>Value iteration</li>
+      <li>Policy iteration</li>
+      <li>Tree search</li>
+      <li>…</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="sample-based-planning">Sample-Based Planning</h4>
+
+<ul>
+  <li>A simple but powerful approach to planning</li>
+  <li>Use the model only to generate samples</li>
+  <li>Sample experience from model</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ S_{t+1} } &amp; \sim \mathsf{ \mathcal{P}_\eta(S_{t+1}\;\vert\;S_t, A_t) } \\
+\mathsf{ R_{t+1} } &amp;= \mathsf{ \mathcal{R}_\eta(R_{t+1}\;\vert\;S_t, A_t) }
+\end{aligned}\]
+
+<ul>
+  <li>Apply model-free RL to samples, e.g.:
+    <ul>
+      <li>Monte-Carlo control</li>
+      <li>Sarsa</li>
+      <li>Q-learning</li>
+    </ul>
+  </li>
+  <li>Sample-based planning methods are often more efficient</li>
+</ul>
+
+<h4 id="planning-with-an-inaccurate-model">Planning with an Inaccurate Model</h4>
+
+<ul>
+  <li>Given an imperfect model $\langle \mathcal{P_\eta, R_\eta} \rangle \neq \langle \mathcal{P, R} \rangle$</li>
+  <li>Performance of model-based RL is limited to optimal policy for approximate MDP $\langle \mathcal{S,A,P_\eta, R_\eta} \rangle$</li>
+  <li>i.e. Model-based RL is only as good as the estimated model</li>
+  <li>When the model is inaccurate, planning process will compute a suboptimal policy</li>
+  <li>Solution 1: when model is wrong, use model-free RL</li>
+  <li>Solution 2: reason explicitly about model uncertainty</li>
+</ul>
+
+<p>이런 사례가 많이 생길것 같은데 그 이유는 여태까지 쌓아온 가정이 너무 많으면서 굳이 필요없어보이는 부분까지도 가정하기 때문이라는 느낌</p>
+
+<h2 id="integrated-architectures">Integrated Architectures</h2>
+
+<h3 id="dyna">Dyna</h3>
+
+<h4 id="real-and-simulated-experience">Real and Simulated Experience</h4>
+
+<p>We consider two sources of experience</p>
+
+<p>Real experience - Sample from envrionment (True MDP)</p>
+
+\[\begin{aligned}
+\mathsf{ S' } &amp; \sim \mathsf{ \mathcal{P}^a_{s,s'} } \\
+\mathsf{ R } &amp;= \mathsf{ \mathcal{R}^a_s }
+\end{aligned}\]
+
+<p>Simulated experience - Sampled from model (approximate MDP)</p>
+
+\[\begin{aligned}
+\mathsf{ S' } &amp; \sim \mathsf{ \mathcal{P}_\eta(S'\;\vert\;S, A) } \\
+\mathsf{ R } &amp;= \mathsf{ \mathcal{R}_\eta(R\;\vert\;S, A) }
+\end{aligned}\]
+
+<h4 id="integrating-learning-and-planning">Integrating Learning and Planning</h4>
+
+<ul>
+  <li>Model-Free RL
+    <ul>
+      <li>No model</li>
+      <li>Learn value funciton (and/or policy) from real experience</li>
+    </ul>
+  </li>
+  <li>Model-Based RL (using Sample-Based Planning)
+    <ul>
+      <li>Learn a model from real experience</li>
+      <li>Plan value function (and/or policy) from simulated experience</li>
+    </ul>
+  </li>
+  <li>Dyna
+    <ul>
+      <li>Learn a model from real experience</li>
+      <li>Learn and plan value function (and/or policy) from real and simlated experience</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="dyna-q-algorithm">Dyna-Q Algorithm</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Initialize Q(s,a) and Model(s,a) for all $s \in \mathcal{S}$ and $a \in \mathcal{A}(s)$<br />Do forever:<br />$\quad$ (a) $S\leftarrow$ current (nonterminal) state<br />$\quad$ (b) $A\leftarrow\epsilon$-greedy (S,A) <br />$\quad$ (c) Execute action A; observe resultant reward, R, and state, S’<br />$\quad$ (d) $Q(S,A) \leftarrow Q(S,A) + \alpha [R + \gamma\; max_a Q(S’,a)-Q(S,A)]$<br />$\quad$ (e) $Model(S,A)\leftarrow R,S’$ (assuming deterministic environment)<br />$\quad$ (f) Repeat n times: <br /> $\quad\quad$ $S\leftarrow$ random previously observed state<br /> $\quad\quad$ $A\leftarrow$ random action previously taken in S <br /> $\quad\quad$ $R,S’\leftarrow Model(S,A)$ <br /> $\quad\quad$ $Q(S,A)\leftarrow Q(S,A) + \alpha [R + \gamma max_a Q(S’,a)-Q(S,A)]$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Model에서 추가적인 exeprience를 얻어 Value를 학습시키는 것은 적은 episode로도 빠르게 Value를 학습시킬 수 있을 지 모르나, Model의 정확성은 Real Experience가 충분히 많은 수로 확보되고 Model이 실제 Environment에 가까울 때에만 믿을 수 있다. 때로 초반에 잘못된 Model을 구성하도록 유도할 수도 있으며 장기적으로도 크게 유의미할것 같지는 않다.</p>
+
+<h2 id="simulation-based-search">Simulation-Based Search</h2>
+
+<h3 id="forward-search">Forward Search</h3>
+
+<ul>
+  <li>Forward search algorithms select the best action by lookahead</li>
+  <li>They build a search tree with the current state $s_t$ at the root</li>
+  <li>Using a model of the MDP to look ahead</li>
+  <li>No need to solve whole MDP, just sub-MDP starting from now</li>
+</ul>
+
+<p>Simulation-Based Search</p>
+
+<ul>
+  <li>Forward search paradigm using sample-based planning</li>
+  <li>Simulate episodes of experience from now with the model</li>
+  <li>Apply model-free RL to simulated episodes</li>
+  <li>Simulate episodes of experience from now with the model</li>
+</ul>
+
+\[\mathsf{ \lbrace s^k_t, A^k_t, R^k_{t+1}, \dots, S^k_T \rbrace ^K_{k=1} \sim \mathcal{M}_v }\]
+
+<ul>
+  <li>Apply model-free RL to simulated episodes
+    <ul>
+      <li>Monte-Carlo control $\rightarrow$ Monte-Carlo search</li>
+      <li>Sarsa $\rightarrow$ TD search</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="monte-carlo-search">Monte-Carlo Search</h3>
+
+<h4 id="simple-monter-carlo-search">Simple Monter-Carlo Search</h4>
+
+<ul>
+  <li>Given a model $\mathcal{M}_v$ and a simulation policy $\pi$</li>
+  <li>For each action $\mathsf{a}\in\mathcal{A}$
+    <ul>
+      <li>Simulate K episodes from current (real) state $\mathsf{s_t}$
+<br /><center>$$ \mathsf{ \lbrace s_t, a, R^k_{t+1}, S^k_{t+1}, A^k_{t+1} \dots, S^k_T \rbrace ^K_{k=1} \sim \mathcal{M}_v,\pi } $$</center></li>
+      <li>Evaluate actions by mean return (Monte-Carlo evaluation)
+<br /><center>$$ \mathsf{ Q(s_t,a) = \frac{1}{K} \displaystyle\sum^K_{k=1} G_t \overset{P}{\rightarrow} q_\pi(s_t,a) } $$</center></li>
+    </ul>
+  </li>
+  <li>Select current (real) action with maximum value
+<br /><center>$$ \mathsf{ a_t = \underset{a\in\mathcal{A}}{argmax}\; Q(s_t,a) } $$</center></li>
+</ul>
+
+<h4 id="monte-carlo-tree-search-evaluation">Monte-Carlo Tree Search (Evaluation)</h4>
+
+<ul>
+  <li>Given a model $\mathcal{M}_v$</li>
+  <li>Simulate K episodes from current state $\mathsf{s_t}$ using current simulation policy $\pi$
+<br /><center>$$ \mathsf{ \lbrace s_t, A^k_{t+1}, R^k_{t+1}, S^k_{t+1}, \dots, S^k_T \rbrace ^K_{k=1} \sim \mathcal{M}_v,\pi } $$</center></li>
+  <li>Build a search tree containing visited states and actions</li>
+  <li>Evaluate states Q(s,a) by mean return of episodes from s, a
+<br /><center>$$ \mathsf{ Q(s,a) = \frac{1}{N(s,a)} \displaystyle\sum^K_{k=1}\sum^T_{u=t} 1(S_u, A_u = s,a)G_u \overset{P}{\rightarrow} q_\pi(s_t,a) } $$</center></li>
+  <li>After search is finished, select current (real) action with maximum value in search tree
+<br /><center>$$ \mathsf{ a_t = \underset{a\in\mathcal{A}}{argmax}\; Q(s_t,a) } $$</center></li>
+</ul>
+
+<h4 id="monte-carlo-tree-search-simulation">Monte-Carlo Tree Search (Simulation)</h4>
+
+<ul>
+  <li>MCTS, the simulation policy $\pi$ improves</li>
+  <li>Each simulation consists of two phases (in-tree, out-of-tree)
+    <ul>
+      <li>Tree policy (improves): pick actions to maximise Q(S,A)</li>
+      <li>Default policy (fixed): pick actions randomly</li>
+    </ul>
+  </li>
+  <li>Repeat (each simulation)
+    <ul>
+      <li>Evaluate states Q(S,A) by Monte-Carlo evaluation</li>
+      <li>Improve tree policy, e.g. by $\epsilon$-greedy(Q)</li>
+    </ul>
+  </li>
+  <li>Monte-Carlo control applied to simulated experience</li>
+  <li>Converges on the optimal search tree, $\mathsf{ Q(S,A) \rightarrow q_*(S,A)}$</li>
+</ul>
+
+<h4 id="position-evaluation-in-go">Position Evaluation in Go</h4>
+
+<ul>
+  <li>How good is a position s?</li>
+  <li>Reward function (undiscounted):</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{ R_t } &amp;= \mathsf{ 0 \text{ for all non-terminal steps } t&lt;T } \\
+\mathsf{ R_T } &amp;= \begin{cases}
+1 &amp; \text{ if Balck wins } \\
+0 &amp; \text{ if White wins }
+\end{cases}
+\end{aligned}\]
+
+<ul>
+  <li>Policy $\mathsf{\pi = \langle\pi_B , \pi_W\rangle}$ selects moves for both players</li>
+  <li>Value function (how good is position s):</li>
+</ul>
+
+\[\begin{aligned}
+\mathsf{v_\pi(s)} &amp;= \mathsf{ \mathbb{E}_\pi [R_T \vert S=s] = \mathbb{P} [\text{Black wins } \vert S=s] }  \\
+\mathsf{v_*(s)} &amp;= \mathsf{ \underset{\pi_B}{max}\; \underset{\pi_W}{min}\; v_\pi(s) }
+\end{aligned}\]
+
+<h4 id="advantages-of-mc-tree-search">Advantages of MC Tree Search</h4>
+
+<ul>
+  <li>Highly selective best-first search</li>
+  <li>Evaluates states dynamically (unlike e.g. DP)</li>
+  <li>Uses sampling to break curse of dimensionality</li>
+  <li>Works for “black-box” models (only requires samples)</li>
+  <li>Computationally efficient, anytime, parallelisable</li>
+</ul>
+
+<h3 id="temporal-difference-search">Temporal-Difference Search</h3>
+
+<ul>
+  <li>Simulation-based search</li>
+  <li>Using TD instead of MC (bootstrapping)</li>
+  <li>MC tree search applies MC control to sub-MDP from now</li>
+  <li>TD search applies Sarsa to sub-MDP from now</li>
+</ul>
+
+<h4 id="mc-vs-td-search">MC vs. TD search</h4>
+
+<ul>
+  <li>For model-free reinforcement learning, bootstrapping is helpful
+    <ul>
+      <li>TD learning reduces variance but increases bias</li>
+      <li>TD learning is usually more efficient than MC</li>
+      <li>TD($\lambda$) can be much more efficient than MC</li>
+    </ul>
+  </li>
+  <li>For simulation-based search, bootstrapping is also helpful
+    <ul>
+      <li>TD search reduces variance but increase bias</li>
+      <li>TD search is usually more efficient than MC search</li>
+      <li>TD($\lambda$) search can be much more efficient than MC search</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="td-search">TD Search</h4>
+
+<ul>
+  <li>Simulate episodes from the current (real) state $\mathsf{s_t}$</li>
+  <li>Estimate action-value function $\mathsf{Q(s,a)}$</li>
+  <li>For each step of simulation, update action-values by Sarsa</li>
+</ul>
+
+\[\mathsf{ \Delta Q(S,A) = \alpha (R+ \gamma Q(S',A') - Q(S,A)) }\]
+
+<ul>
+  <li>Select actions based on action-values $\mathsf{Q(s,a)}
+    <ul>
+      <li>e.g. $\epsilon$-greedy</li>
+    </ul>
+  </li>
+  <li>May also use function approximation for Q</li>
+</ul>
+
+<h4 id="dyna-2">Dyna-2</h4>
+
+<ul>
+  <li>In Dyna-2, the agent stores two sets of feature weights
+    <ul>
+      <li>Long-term memory</li>
+      <li>Short-term (working) memory</li>
+    </ul>
+  </li>
+  <li>Long-term memory is updated from real experience using TD learning
+    <ul>
+      <li>General domain knowledgd that applies to any episod</li>
+    </ul>
+  </li>
+  <li>Short-term memory is updated from simulated experience using TD search
+    <ul>
+      <li>Specific local knowledge about the currrent situation</li>
+    </ul>
+  </li>
+  <li>Over value function is sum of long and short-term memories</li>
+</ul>
+
+
+        
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#lecturenote" class="page__taxonomy-item" rel="tag">lecturenote</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#reinforcementlearning" class="page__taxonomy-item" rel="tag">reinforcementlearning</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#note" class="page__taxonomy-item" rel="tag">Note</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/categories/#rlcourse" class="page__taxonomy-item" rel="tag">RLcourse</a>
+    
+    </span>
+  </p>
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://x.com/intent/post?text=http://localhost:4000/rlcourse/note/RL-course-Note-8/" class="btn btn--x" title="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/rlcourse/note/RL-course-Note-8/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/rlcourse/note/RL-course-Note-8/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/rlcourse/note/RL-course-Note-7/" class="pagination--pager" title="RLcourse note - Lecture 7 Policy Gradient
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/rlcourse/note/RL-course-Note-9/" class="pagination--pager" title="RLcourse note - Lecture 9 Exploration and Exploitation
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2012/08/blog-post-4/" rel="permalink">Future Blog Post
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2199-01-01T00:00:00+00:00">January 01, 2199</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ml/note/pytorch/Setting-Pytorch/" rel="permalink">ML Study note - Setting PyTorch
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-01-13T04:00:00+00:00">January 13, 2024</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>This blog is randomly written without order or flow at the author’s convenience or impulse</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/Setting-Pytorch/" rel="permalink">Setting pytorch
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-01-13T00:00:00+00:00">January 13, 2024</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>&lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+            <meta charset="UTF-8" />
+            <title>Setting Environment</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------</style></p>
+<ul>
+  <li>Copyright (c) Microsoft Corporation. All rights reserved.</li>
+  <li>Licensed under the MIT License. See License.txt in the project root for license information.
+ <em>——————————————————————————————–</em>/</li>
+</ul>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ml/note/spark&hadoop/Spark,-Hadoop/" rel="permalink">ML Study note - Spark, Hadoop
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2023-11-25T02:00:00+00:00">November 25, 2023</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><h2 id="svd-singular-value-decomposition">SVD (Singular Value Decomposition)</h2>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<a href="/sitemap/">Sitemap</a>
+<!-- end custom footer snippets -->
+
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="http://github.com/academicpages"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">
+  &copy; 2025 Your Name, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
+  Site last updated 2025-02-08
+</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
+
