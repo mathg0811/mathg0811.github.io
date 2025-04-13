@@ -10,3 +10,5 @@ group :jekyll_plugins do
 end
 
 gem 'github-pages'
+
+gem "jekyll-include-cache", "~> 0.2.1"

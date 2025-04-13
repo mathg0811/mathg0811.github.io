@@ -59,7 +59,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : dsjungv # Username
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
@@ -83,6 +83,8 @@ publication_category:
     title: 'Journal Articles'    
   conferences:
     title: 'Conference Papers'
+  uncategorized:
+    title: 'Uncategorized'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -103,7 +105,7 @@ comments:
     colorscheme          : # "light" (default), "dark"
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "gh-pages" # "master", "gh-pages"
+  branch                 : "main" # "master", "gh-pages"
   commitMessage          : "New comment."
   filename               : comment-{@timestamp}
   format                 : "yml"
@@ -265,6 +267,7 @@ defaults:
       author_profile: true
       share: true
       comments: true
+      category: "uncategorized"
   # _portfolio
   - scope:
       path: ""

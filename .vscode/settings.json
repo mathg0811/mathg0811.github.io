@@ -1,0 +1,11 @@
+{
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreviewFromCodeNavigation": false,
+    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false,
+    "markdown.extension.preview.autoShowPreviewToSide": false,
+    "markdown-preview-enhanced.printBackground": false,
+    "markdown-preview-enhanced.previewTheme": "github-light.css",
+    "markdown-preview-enhanced.useVscodeTheme": false,
+    "editor.suggest.preview": true,
+    "markdown.experimental.editor": true
+}
