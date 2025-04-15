@@ -11,6 +11,7 @@ pin: true
 ---
 
 ### **Framework Analysis Matrix**  
+
 | Framework            | Design Goals                     | Common Use Cases          | Key Models Supported      | Modularity | Complexity | Ease of Use | Update Frequency |  
 |-----------------------|----------------------------------|---------------------------|---------------------------|------------|------------|-------------|------------------|  
 | **Hugging Face**      | Democratize pretrained models   | NLP/CV prototyping        | ViT, DETR, ResNet         | High       | Medium     | Very High   | Daily (GitHub)   |  
