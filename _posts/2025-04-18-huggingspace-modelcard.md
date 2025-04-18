@@ -1,3 +1,15 @@
+---
+title: Hugging Face Model Card
+author: DS Jung
+date: 2025-04-18 18:00:00 +0900
+categories: [huggingface, Frameworks]
+tags: [huggingface]    # TAG names should always be lowercase
+comment: true
+math: true
+mermail: false
+pin: true
+---
+
 # Hugging Face Model Card: Concept, Philosophy, Example, and Fields
 
 ## Concept and Philosophy of Model Card
