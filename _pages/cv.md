@@ -11,8 +11,9 @@ redirect_from:
 
 ## Summary
 
-Optics and Computer Vision Engineer with 8+ years of experience in optical system design, sensor calibration, and AI-based inspection.  
-Delivered vision AI systems deployed in embedded environments across high-speed, high-volume manufacturing.
+*Applied Research Engineer with expertise in Optical Systems, Coputer Vision AI, and Software development.* Skilled in integrating theoretical insights from physics-based modeling with practical experience in end-to-end imaging pipelines - from image acquisition and sensor-level control to model training, deployment and monitoring in challenging envrionments.
+
+My core interests lies in fusing optics and vision AI to develop next-generation systems. I am particularly drawn to projects that leverage cutting-edge technologies - such as metasurfaces, inverse design with AI, compact sensors, applying new vision models - to solve real-world problems in constrained settings. I seek to contribute to impactful solutions in augmented reality and biomedical imaging by applying multidisciplinary knowledge across optics, computer visions, HW and SW.
 
 ---
 
@@ -24,7 +25,7 @@ Delivered vision AI systems deployed in embedded environments across high-speed,
 - Published in *Scientific Reports*; recipient of Hyundai Humantech Paper Award and SPIE recognition  
 
 **B.S., Mechanical Engineering**  
-*Yonsei University, 2006 – 2010*
+*Yonsei University, 2009 – 2015*
 
 ---
 
